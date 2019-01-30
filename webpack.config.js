@@ -1,5 +1,7 @@
 const webpack = require('path');
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: [
@@ -32,4 +34,29 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      inject: false,
+      hash: true,
+      template: path.resolve(__dirname, 'src/html/alymow-ru.html'),
+      filename: 'html/index.html'
+    }),
+    new CopyWebpackPlugin([{
+      from: './src/fonts',
+      to: './fonts'
+    },
+      {
+        from: './src/favicon',
+        to: './favicon'
+      },
+      {
+        from: './src/img',
+        to: './img'
+      },
+      {
+        from: './src/uploads',
+        to: './uploads'
+      }
+    ]),
+  ],
 };
