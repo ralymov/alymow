@@ -18,6 +18,7 @@ try {
     $name = htmlspecialchars($_POST['name']);
     $message = htmlspecialchars($_POST['message']);
     $body = $email . '<br/>' . $name . '<br/>' . $message;
+    $telegramMessage = "email: $email, name: $name, message; $message";
 
     $mail = new PHPMailer;
     $mail->isSMTP();
@@ -34,13 +35,27 @@ try {
     $mail->isHTML();
     $mail->Subject = 'New contact request';
     $mail->Body = $body;
-    if (!$mail->send()) {
-        http_response_code(500);
-        echo 'Mailer Error: ' . $mail->ErrorInfo;
-    } else {
-        echo 'Message sent!';
-    }
+    $mail->send();
+    sendMessage($telegramMessage);
+    echo 'Message sent!';
 } catch (\Exception $exception) {
     echo 'Message could not be sent';
+}
+
+function sendMessage($message)
+{
+    $token = getenv('TELEGRAM_TOKEN');
+    $chatId = getenv('TELEGRAM_CHAT_ID');
+    $url = "https://api.telegram.org/bot$token/sendMessage?chat_id=$chatId";
+    $url = $url . "&text=" . urlencode($message);
+    $ch = curl_init();
+    $optArray = [
+        CURLOPT_URL => $url,
+        CURLOPT_RETURNTRANSFER => true
+    ];
+    curl_setopt_array($ch, $optArray);
+    $result = curl_exec($ch);
+    curl_close($ch);
+    return $result;
 }
 

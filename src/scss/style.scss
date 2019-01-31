@@ -1,5 +1,16 @@
-@import "~bootstrap/scss/bootstrap";
-@import "~normalize.css/normalize";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/transitions";
+@import "~bootstrap/scss/progress";
+@import "~bootstrap/scss/close";
+@import "~bootstrap/scss/modal";
+@import "~bootstrap/scss/utilities";
 
 html {
   box-sizing: border-box
@@ -256,7 +267,8 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   width: 100%;
   border: none !important;
   box-shadow: 0 1px 29px rgba(0, 0, 0, .16);
-  position: relative
+  position: relative;
+  outline: none;
 }
 
 .site-btn.site-btn--form:hover {
