@@ -3,6 +3,7 @@ import $ from 'jquery';
 window.jQuery = window.$ = $;
 import popper from 'popper.js';
 import bootstrap from 'bootstrap';
+import Swal from 'sweetalert2';
 
 require("waypoints/lib/jquery.waypoints.js");
 
@@ -39,7 +40,7 @@ function initMenu() {
       $('.mobile-menu').removeClass('mobile-menu--active');
     }
   }
-
+  
   fixedHeader();
   $(window).on('scroll', function () {
     fixedHeader();
@@ -77,11 +78,11 @@ function initSection() {
   const hideHeader = function (header) {
     header.css('text-indent', '-9999px');
   };
-
+  
   const showHeader = function (header) {
     header.css('text-indent', '0px');
   };
-
+  
   const animateHeader = function (header, text) {
     //clear header text
     header.text("");
@@ -95,7 +96,7 @@ function initSection() {
     };
     nextAnimationStep();
   };
-
+  
   const animateHeaders = function (headers) {
     return Object.keys(headers).map(function (key, index) {
       var elementSelector = key;
@@ -131,23 +132,23 @@ function initPortfolioFilter() {
   let previousClickedMenuLink = undefined;
   $('.portfolio-menu').on('click', 'a', function (event) {
     event.preventDefault();
-
+    
     if (previousClickedMenuLink) {
       previousClickedMenuLink.removeClass('portfolio-menu__link--active');
     }
     let link = $(event.target);
     link.addClass('portfolio-menu__link--active');
     previousClickedMenuLink = link;
-
+    
     let targetTag = $(event.target).data('portfolio-target-tag');
     let portfolioItems = $('.portfolio-cards').children();
-
+    
     if (targetTag === 'all') {
       portfolioItems.fadeIn({duration: 500});
     } else {
       portfolioItems.hide();
     }
-
+    
     portfolioItems.each(function (index, value) {
       let item = $(value);
       if (item.data('portfolio-tag') === targetTag) {
@@ -163,11 +164,11 @@ function initSlider() {
     pause: "hover",
     interval: 5000
   });
-
+  
   $(".carousel-control-prev").click(function () {
     $(".carousel").carousel("prev");
   });
-
+  
   $(".carousel-control-next").click(function () {
     $(".carousel").carousel("next");
   });
@@ -189,38 +190,39 @@ function initContacts() {
         if (item.value !== '') item.dataset.touched = true;
       });
     });
-  };
-
+  }
+  
   validateForm('.js-form .form-field');
-
+  
   let form = document.querySelector('.js-form');
   let formName = '.js-form';
-
+  
   form.addEventListener('submit', function (e) {
     submitForm(e, formName);
   });
-
+  
   function submitForm(e, formName) {
     e.preventDefault();
-    let name = $(formName + ' .js-field-name').val();
-    let email = $(formName + ' .js-field-email').val();
-    let message = $(formName + ' .js-field-message').val();
-
-    let formData = {
-      name: name,
-      email: email,
-      message: message
-    };
-
+    let formData = $(formName).serializeArray();
+    
     $.ajax({
       type: "POST",
-      url: 'mail.php',
+      url: 'mail.php/',
+      contentType: "application/x-www-form-urlencoded",
       data: formData,
       success: function () {
-        console.log('success');
+        Swal.fire(
+          'Спасибо!',
+          'Ваш запрос успешно отправлен. Ожидайте обратной связи.',
+          'success'
+        );
       },
       error: function () {
-        console.log('error');
+        Swal.fire(
+          'Ошибка',
+          'Что-то пошло не так.',
+          'error'
+        );
       }
     });
   }

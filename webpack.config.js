@@ -1,6 +1,4 @@
-const webpack = require('path');
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
@@ -9,7 +7,7 @@ module.exports = {
     path.resolve(__dirname, 'src/scss/style.scss'),
   ],
   output: {
-    filename: './js/bundle.js'
+    filename: './bundle.js'
   },
   devtool: "source-map",
   module: {
@@ -35,16 +33,19 @@ module.exports = {
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      inject: false,
-      hash: true,
-      template: path.resolve(__dirname, 'src/html/alymow-ru.html'),
-      filename: 'html/index.html'
-    }),
-    new CopyWebpackPlugin([{
-      from: './src/fonts',
-      to: './fonts'
-    },
+    new CopyWebpackPlugin([
+      {
+        from: './src/fonts',
+        to: './fonts'
+      },
+      {
+        from: './src/scripts/mail.php',
+        to: './'
+      },
+      {
+        from: './src/html/index-ru.php',
+        to: './index.php'
+      },
       {
         from: './src/favicon',
         to: './favicon'
