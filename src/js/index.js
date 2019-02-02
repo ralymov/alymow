@@ -211,7 +211,7 @@ function submitForm(e, form) {
 
   $.ajax({
     type: "POST",
-    url: 'mail.php/',
+    url: 'mail.php',
     contentType: "application/x-www-form-urlencoded",
     data: formData,
     beforeSend: function() {

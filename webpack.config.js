@@ -4,6 +4,8 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const ImageminPlugin = require('imagemin-webpack-plugin').default;
+const imageminMozjpeg = require('imagemin-mozjpeg');
 
 module.exports = {
   entry: [
@@ -33,7 +35,7 @@ module.exports = {
           "css-loader",
           "sass-loader"
         ]
-      }
+      },
     ]
   },
   plugins: [
@@ -54,6 +56,10 @@ module.exports = {
         to: './index.php'
       },
       {
+        from: './.env',
+        to: './'
+      },
+      {
         from: './src/favicon',
         to: './favicon'
       },
@@ -66,6 +72,13 @@ module.exports = {
         to: './uploads'
       }
     ]),
+    new ImageminPlugin({
+      test: /\.(jpe?g|png|gif|svg)$/i,
+      pngquant: {
+        quality: '80-90'
+      },
+      plugins: [imageminMozjpeg({quality: '70'})]
+    })
     //new BundleAnalyzerPlugin(),
   ],
   optimization: {
