@@ -6,6 +6,8 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const imageminMozjpeg = require('imagemin-mozjpeg');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: [
@@ -13,7 +15,7 @@ module.exports = {
     path.resolve(__dirname, 'src/scss/style.scss'),
   ],
   output: {
-    filename: './bundle.js'
+    filename: 'bundle.js'
   },
   devtool: "source-map",
   module: {
@@ -48,24 +50,37 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.(eot|ttf|svg|woff|woff2)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              outputPath: 'fonts',
+              name: '[name].[ext]',
+            },
+          },
+        ],
+      },
     ]
   },
   plugins: [
+    new CleanWebpackPlugin(
+      ['dist'], {verbose: true, dry: false}
+    ),
     new MiniCssExtractPlugin({
       filename: "style.css",
     }),
+    new HtmlWebpackPlugin({
+      inject: false,
+      hash: true,
+      template: './src/html/index-ru.html',
+      filename: 'index.html'
+    }),
     new CopyWebpackPlugin([
-      {
-        from: './src/fonts',
-        to: './fonts'
-      },
       {
         from: './src/scripts/mail.php',
         to: './'
-      },
-      {
-        from: './src/html/index-ru.php',
-        to: './index.php'
       },
       {
         from: './.env',
@@ -90,7 +105,7 @@ module.exports = {
         quality: '80-90'
       },
       plugins: [imageminMozjpeg({quality: '70'})]
-    })
+    }),
     //new BundleAnalyzerPlugin(),
   ],
   optimization: {

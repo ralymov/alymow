@@ -11,6 +11,7 @@
 @import "~bootstrap/scss/close";
 @import "~bootstrap/scss/modal";
 @import "~bootstrap/scss/utilities";
+@import "icons";
 
 html {
   box-sizing: border-box
@@ -318,6 +319,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 }
 
 .menu .menu__mobile-button {
+  outline: none;
   color: #fff;
   opacity: .5;
   transition: all .3s;
@@ -621,7 +623,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 .contacts .contacts__form .form-group span {
   color: #fff;
   position: absolute;
-  top: 10px;
+  top: 8px;
   text-align: right;
   opacity: 0;
   right: 20px;
