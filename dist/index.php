@@ -9,6 +9,8 @@
           content="Сайт web-разработчика Алымов Романа. Профессиональная разработка web-приложений на PHP, Laravel, VueJS">
     <meta name="keywords" content="PHP,Laravel,VueJS,JavaScript,HTML,CSS">
     <meta name="author" content="Роман Алымов">
+    <meta name="yandex-verification" content="990fe82cf8b2bd0b" />
+    <meta name="google-site-verification" content="CoXeOH2LsLULgCRmocM6-RU1FCjZWsAZrULnBRBqGG4" />
     <title>Создание и оптимизация web-приложений на PHP, Laravel, VueJS</title>
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
@@ -73,7 +75,7 @@
       <div class="container">
         <div class="row personal-profile">
           <div class="col-md-4 personal-profile__avatar">
-            <img src="img/img_avatar.jpg" alt="avatar">
+            <div class="profile-image"></div>
           </div>
           <div class="col-md-8">
             <p class="personal-profile__name">Алымов Роман_</p>
@@ -271,7 +273,7 @@
     <!--Resume-->
 
     <!--Contact-->
-    <div class="background" style="background-image: url(img/img_bg_main.jpg)">
+    <div class="background">
       <div id="contact" class="container section">
         <div class="row">
           <div class="col-md-12">

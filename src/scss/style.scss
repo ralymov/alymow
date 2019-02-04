@@ -111,21 +111,22 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   padding-top: 90px
 }
 
-.personal-profile .personal-profile__avatar img {
+.personal-profile .personal-profile__avatar .profile-image {
+  background-image: url(../img/img_avatar.jpg);
   border-radius: 5px;
   box-shadow: 0 0 27px rgba(96, 96, 96, .34);
   width: 90%;
   height: 380px;
-  -o-object-fit: cover;
-  object-fit: cover;
+  background-size: cover;
   margin-top: 10px;
   position: relative;
-  top: 40px
+  top: 40px;
+  background-position-y: -30px;
 }
 
 @media screen and (max-width: 990px) {
   .personal-profile .personal-profile__avatar {
-    display: none
+    display: none;
   }
 }
 
@@ -555,6 +556,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 }
 
 .background {
+  background-image: url(../img/img_bg_main.jpg);
   background-color: #6d56c1;
   height: 100%;
   background-repeat: no-repeat;
@@ -563,6 +565,13 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   position: relative;
   color: #fff
 }
+
+@media screen and (max-width: 760px) {
+  .background {
+    background-image: none;
+  }
+}
+
 
 .background:before {
   background: linear-gradient(54deg, rgba(74, 76, 179, .95) 34%, hsla(0, 34%, 71%, .95));
