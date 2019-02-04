@@ -287,7 +287,7 @@
                 <dt>Phone:</dt>
                 <dd><a href="tel:89678260718">8 (967) 826-07-18</a></dd>
                 <dt>Telegram:</dt>
-                <dd><a href="tg://resolve?domain=ralymow">ralymow</a></dd>
+                <dd><a href="tg://resolve?domain=ralymov">ralymov</a></dd>
                 <dt>Email:</dt>
                 <dd><a href="mailto:romanalym@gmail.com">romanalym@gmail.com</a></dd>
               </dl>
