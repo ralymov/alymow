@@ -809,7 +809,12 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 }
 
 .progress-list .progress .progress-bar {
-  background-color: #6d56c1
+  //background-color: #6d56c1;
+  width: 100%;
+}
+
+.progress-bar {
+  background-color: transparent;
 }
 
 .portfolio-modal .modal-content {

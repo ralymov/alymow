@@ -1,10 +1,8 @@
-import $ from 'jquery';
-
-window.jQuery = window.$ = $;
-//import bootstrap from 'bootstrap';
 import Swal from 'sweetalert2';
+import smoothscroll from 'smoothscroll-polyfill';
 
-require("waypoints/lib/jquery.waypoints.js");
+const ProgressBar = require('progressbar.js');
+require("waypoints/lib/noframework.waypoints.min");
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -12,91 +10,88 @@ document.addEventListener("DOMContentLoaded", () => {
   initMobileMenu();
   initProgressList();
   initSection();
-  initPortfolioFilter();
-  //initSlider();
   initContacts();
+  //initPortfolioFilter();
+  //initSlider();
 });
 
 
 //Init functions
 function initMenu() {
   //Anchors
-  $(function () {
-    $('a[href^="#"]').click(function () {
-      let target = $(this).attr('href');
-      $('html, body').animate({scrollTop: $(target).offset().top - 50}, 800);
-      return false;
+  smoothscroll.polyfill();
+  const menuElements = document.querySelectorAll('a[href^="#"]');
+  Array.from(menuElements).forEach(element => {
+    element.addEventListener('click', event => {
+      event.preventDefault();
+      let targetId = event.target.getAttribute('href').substring(1);
+      let target = document.getElementById(targetId);
+      let coords = getCoords(target);
+      window.scroll({
+        top: coords.top - 50,
+        behavior: 'smooth'
+      });
     });
   });
 
   fixedHeader();
-  $(window).on('scroll', function () {
-    fixedHeader();
-  });
+  window.addEventListener('scroll', fixedHeader);
 }
 
 function initMobileMenu() {
-  //Open mobile menu
-  $('.menu__mobile-button, .mobile-menu__close').on('click', function () {
-    $('.mobile-menu').toggleClass('active');
+  const mobileMenu = document.querySelector('.mobile-menu');
+
+  document.querySelector('.menu__mobile-button').addEventListener('click', () => {
+    mobileMenu.classList.toggle('active')
+  });
+
+  document.querySelector('.mobile-menu__close').addEventListener('click', () => {
+    mobileMenu.classList.toggle('active')
   });
 
   //Close mobile menu after click
-  $('.mobile-menu__wrapper ul li a').on('click', function () {
-    $('.mobile-menu').removeClass('active');
+  Array.from(document.querySelectorAll('.mobile-menu__wrapper ul li a')).forEach(function (element) {
+    element.addEventListener('click', () => mobileMenu.classList.remove('active'));
   });
 }
 
 function initProgressList() {
   //Animate progress-bar
-  // let elements = document.getElementsByClassName('progress-bar');
-  // if (elements.length <= 0) return;
-  // window.addEventListener('scroll', () => {
-  //   animateProgressBars();
-  //   removeProgressBarEventListener();
-  // });
-  //
-  // function removeProgressBarEventListener() {
-  //   window.removeEventListener('scroll', animateProgressBars());
-  // }
-  //
-  // function animateProgressBars() {
-  //   if (isInViewport(elements[0])) {
-  //     Array.from(elements).forEach(function (element) {
-  //       animateProgressBar(element);
-  //     });
-  //   }
-  // }
-
-  $('.js-progress-list').waypoint({
+  let element = document.querySelector('.progress-list');
+  let progressBars = document.getElementsByClassName('progress-bar');
+  let bars = [];
+  Array.from(progressBars).forEach(element => {
+    bars.push({
+      animation: new ProgressBar.Line(element, {color: '#6d56c1', duration: 1000, easing: 'easeInOut'}),
+      maxValue: element.getAttribute('aria-valuenow') / 100,
+    });
+  });
+  new Waypoint({
+    element: element,
     handler: function () {
-      $(".progress-bar").each(function () {
-        $(this).animate({
-          width: $(this).attr('aria-valuenow') + '%'
-        }, 200);
-      });
-      this.destroy();
-    }, offset: '50%'
+      bars.forEach(element => element.animation.animate(element.maxValue));
+    }, offset: '70%'
   });
 }
 
 function initSection() {
   //Animate headers of .section
-  const hideHeader = function (header) {
-    header.css('text-indent', '-9999px');
+  const hideHeader = header => {
+    if (!header) return;
+    header.style.textIndent = '-9999px';
+  };
+  const showHeader = header => {
+    if (!header) return;
+    header.style.textIndent = '0px';
   };
 
-  const showHeader = function (header) {
-    header.css('text-indent', '0px');
-  };
-
-  const animateHeader = function (header, text) {
+  const animateHeader = (header, text) => {
     //clear header text
-    header.text("");
+    header.textContent = '';
     //and animate it
-    var nextAnimationStep = function () {
+    let nextAnimationStep = function () {
       if (text.length > 0) {
-        header.text(header.text() + text.substr(0, 1));
+        header.textContent = header.textContent + text.substr(0, 1);
         text = text.substr(1);
         setTimeout(nextAnimationStep, 100);
       }
@@ -104,17 +99,19 @@ function initSection() {
     nextAnimationStep();
   };
 
-  const animateHeaders = function (headers) {
+  const animateHeaders = headers => {
     return Object.keys(headers).map(function (key, index) {
-      var elementSelector = key;
-      var offset = headers[key];
-      var header = $(elementSelector);
+      let elementSelector = key;
+      let offset = headers[key];
+      let header = document.querySelector(elementSelector);
+      if (!header) return;
       hideHeader(header);
-      var waypoint = {};
-      waypoint[key] = header.waypoint({
+      let waypoint = {};
+      waypoint[key] = new Waypoint({
+        element: header,
         handler: function () {
           showHeader(header);
-          animateHeader(header, header.text());
+          animateHeader(header, header.textContent);
           this.destroy();
         },
         offset: offset
@@ -123,7 +120,7 @@ function initSection() {
     }).reduce(Object.assign, {});
   };
 
-//All ids of titles should be written here to animation work
+  //All ids of titles should be written here to animation work
   const animatedHeaders = animateHeaders({
     "#hello_header": '90%',
     "#resume_header": '70%',
@@ -209,43 +206,25 @@ function submitForm(e, form) {
   e.preventDefault();
   let formData = toJSONString(form);
 
-  $.ajax({
-    type: "POST",
-    url: 'mail.php',
-    contentType: "application/x-www-form-urlencoded",
-    data: formData,
-    beforeSend: function() {
-      Swal.fire(
-        'Спасибо!',
-        'Ваш запрос успешно отправлен. Ожидайте обратной связи.',
-        'success'
-      );
-    },
-    // success: function () {
-    //   Swal.fire(
-    //     'Спасибо!',
-    //     'Ваш запрос успешно отправлен. Ожидайте обратной связи.',
-    //     'success'
-    //   );
-    // },
-    // error: function () {
-    //   Swal.fire(
-    //     'Ошибка',
-    //     'Что-то пошло не так.',
-    //     'error'
-    //   );
-    // }
-  });
+  const request = new XMLHttpRequest();
+  request.open('POST', 'mail.php', true);
+  request.setRequestHeader('Content-Type', 'application/json');
+  request.send(formData);
+  Swal.fire(
+    'Спасибо!',
+    'Ваш запрос успешно отправлен. Ожидайте обратной связи.',
+    'success'
+  );
 }
 
 function fixedHeader() {
-  let ww = $(window).scrollTop();
+  let ww = window.pageYOffset;
   if (ww > 0) {
-    $('.menu').addClass('menu--active');
-    $('.mobile-menu').addClass('mobile-menu--active');
+    document.querySelector('.menu').classList.add('menu--active');
+    document.querySelector('.mobile-menu').classList.add('mobile-menu--active');
   } else {
-    $('.menu').removeClass('menu--active');
-    $('.mobile-menu').removeClass('mobile-menu--active');
+    document.querySelector('.menu').classList.remove('menu--active');
+    document.querySelector('.mobile-menu').classList.remove('mobile-menu--active');
   }
 }
 
@@ -262,31 +241,13 @@ function toJSONString(form) {
     }
   }
 
-  return obj;
+  return JSON.stringify(obj);
 }
 
-function animateProgressBar(element) {
-  let width = 0;
-  let id = setInterval(frame, 10);
-  let valueNow = element.getAttribute('aria-valuenow');
-
-  function frame() {
-    if (width >= valueNow) {
-      console.log('clear that shit!');
-      clearInterval(id);
-    } else {
-      width++;
-      element.style.width = width + '%';
-    }
-  }
-}
-
-function isInViewport(element) {
-  let bounding = element.getBoundingClientRect();
-  return (
-    bounding.top >= 0 &&
-    bounding.left >= 0 &&
-    bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-    bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
-  );
+function getCoords(elem) {
+  let box = elem.getBoundingClientRect();
+  return {
+    top: box.top + pageYOffset,
+    left: box.left + pageXOffset
+  };
 }

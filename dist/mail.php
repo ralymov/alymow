@@ -14,9 +14,12 @@ try {
     $dotenv = Dotenv::create(__DIR__);
     $dotenv->load();
 
-    $email = htmlspecialchars($_POST['email']);
-    $name = htmlspecialchars($_POST['name']);
-    $message = htmlspecialchars($_POST['message']);
+    $postData = file_get_contents('php://input');
+    $data = json_decode($postData, true);
+    $email = htmlspecialchars($data['email']);
+    $name = htmlspecialchars($data['name']);
+    $message = htmlspecialchars($data['message']);
+
     $body = $email . '<br/>' . $name . '<br/>' . $message;
     $telegramMessage = "email: $email, name: $name, message; $message";
 
