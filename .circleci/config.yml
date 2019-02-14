@@ -46,7 +46,7 @@ jobs:
       - run:
           name: Deploy Over SSH
           command: |
-            ssh $SSH_USER@$SSH_HOST 'cd /var/www/alymow;git pull;git checkout master;yarn run build;ls -al'
+            ssh $SSH_USER@$SSH_HOST 'cd /var/www/alymow;git checkout master;git pull;yarn run build'
 
 workflows:
   version: 2
