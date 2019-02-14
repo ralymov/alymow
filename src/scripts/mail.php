@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 try {
-    $dotenv = Dotenv::create(__DIR__);
+    $dotenv = Dotenv::create(dirname(__DIR__));
     $dotenv->load();
 
     $postData = file_get_contents('php://input');

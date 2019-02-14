@@ -1,0 +1,62 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/php:7.1-node-browsers
+    steps:
+      - checkout
+
+      # Install composer dependencies
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "composer.lock" }}
+            - v1-dependencies-
+      - run:
+          name: Install composer dependencies
+          command: composer install -n --prefer-dist
+      - save_cache:
+          key: v1-dependencies-{{ checksum "composer.lock" }}
+          paths:
+            - ./vendor
+
+      # Install frontend dependencies
+      - restore_cache:
+          keys:
+            - node-v1-{{ checksum "yarn.lock" }}
+            - node-v1-
+      - run:
+          name: Install frontend dependencies
+          command: yarn install
+      - save_cache:
+          key: node-v1-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules
+
+      # Build project
+      - run:
+          name: Build project
+          command: yarn run build
+      - run:
+          name: Code has builded
+          command: ls -al
+
+  deploy:
+    machine: true
+    steps:
+      - run:
+          name: Deploy Over SSH
+          command: |
+            ssh $SSH_USER@$SSH_HOST 'cd /var/www/alymow;git pull;git checkout master;yarn run build;ls -al'
+
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
+

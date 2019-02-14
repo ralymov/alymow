@@ -83,10 +83,6 @@ module.exports = {
         to: './'
       },
       {
-        from: './.env',
-        to: './'
-      },
-      {
         from: './src/favicon',
         to: './favicon'
       },
