@@ -207,7 +207,7 @@ function submitForm(e, form) {
   let formData = toJSONString(form);
 
   const request = new XMLHttpRequest();
-  request.open('POST', 'mail.php', true);
+  request.open('POST', 'SendMail.php', true);
   request.setRequestHeader('Content-Type', 'application/json');
   request.send(formData);
   Swal.fire(

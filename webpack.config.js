@@ -66,7 +66,7 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(
-      ['dist'], {verbose: true, dry: false}
+      ['dist'], {verbose: true, dry: false, beforeEmit: true,}
     ),
     new MiniCssExtractPlugin({
       filename: "style.css",
@@ -79,7 +79,7 @@ module.exports = {
     }),
     new CopyWebpackPlugin([
       {
-        from: './src/scripts/mail.php',
+        from: './src/scripts',
         to: './'
       },
       {
