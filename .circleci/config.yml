@@ -35,7 +35,7 @@ jobs:
       # Build project
       - run:
           name: Build project
-          command: yarn run build
+          command: yarn run production
       - run:
           name: Code has builded
           command: ls -al
