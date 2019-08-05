@@ -83,12 +83,12 @@
                 <div class="personal-profile__contacts">
                     <dl class="contact-list contact-list__opacity-titles">
                         <dt>Возраст:</dt>
-                        <dd>22</dd>
+                        <dd>{{Carbon\Carbon::parse('23.04.1996')->age}}</dd>
                         <dt>Телефон:</dt>
                         <dd><a href="tel:82344563333">8 (967) 826-07-18</a></dd>
                         <dt>Email:</dt>
                         <dd><a href="mailto:romanalym@gmail.com">romanalym@gmail.com</a></dd>
-                        <dt>Адрес:</dt>
+                        <dt>Место:</dt>
                         <dd>Россия, Астраханская область, г. Астрахань</dd>
                     </dl>
                 </div>
@@ -165,7 +165,7 @@
             <h3 class="resume-list_title">Образование</h3>
             <div class="resume-list__block">
                 <p class="resume-list__block-title">Астраханский государственный технический университет</p>
-                <p class="resume-list__block-date">2017 - по настоящее время</p>
+                <p class="resume-list__block-date">2017 - 2019</p>
                 <p>
                     Магистратура, направление подготовки "Информационное и программное обеспечение автоматизированных
                     систем".
