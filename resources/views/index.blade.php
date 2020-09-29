@@ -143,10 +143,18 @@
         <div class="col-md-8 section__resume resume-list">
             <h3 class="resume-list_title">Работа</h3>
             <div class="resume-list__block">
-                <p class="resume-list__block-title">Webmechanic</p>
-                <p class="resume-list__block-date">2017 - по настоящее время</p>
+                <p class="resume-list__block-title">Vigrom</p>
+                <p class="resume-list__block-date">2019 - по настоящее время</p>
                 <p>
-                    <b>Web-разработчик</b><br>
+                    <b>Backend PHP Developer</b><br>
+                    Разработка бэкенда для продукта, связанного с онлайн-играми
+                </p>
+            </div>
+            <div class="resume-list__block">
+                <p class="resume-list__block-title">Webmechanic</p>
+                <p class="resume-list__block-date">2017 - 2019</p>
+                <p>
+                    <b>Web Developer</b><br>
                     Разработка и поддержка сайтов и внутренних CRM систем
                 </p>
             </div>
@@ -338,7 +346,7 @@
                     </form>
                 </div>
                 <div class="footer">
-                    <p>© 2019 Роман Алымов</p>
+                    <p>© {{date("Y")}} Роман Алымов</p>
                 </div>
             </div>
         </div>
