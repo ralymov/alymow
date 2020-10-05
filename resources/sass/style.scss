@@ -12,6 +12,7 @@
 @import "~bootstrap/scss/modal";
 @import "~bootstrap/scss/utilities";
 @import "icons";
+@import "~selectize/dist/css/selectize.default.css";
 
 html {
   box-sizing: border-box
@@ -1238,3 +1239,14 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   top: 25px !important
 }
 
+.selectize-input input {
+  color: transparent !important;
+  width: 0 !important;
+  position: absolute !important;
+  top: -9999px;
+  left: -9999px;
+}
+
+.selectize-control.single .selectize-input.input-active, .selectize-control.single .selectize-input.input-active input {
+  cursor: pointer;
+}

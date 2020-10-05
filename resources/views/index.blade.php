@@ -29,21 +29,47 @@
     <div class="container">
         <div class="row">
             <div class="menu__wrapper d-none d-lg-block col-md-12">
-                <nav>
-                    <ul>
-                        <li><a href="#hello">О себе</a></li>
-                        <li><a href="#resume">Резюме</a></li>
-                        <!--<li><a href="#portfolio">Портфолио</a></li>-->
-                        <!--<li><a href="#testimonials">Отзывы</a></li>-->
-                        <!--<li><a href="#blog">Блог</a></li>-->
-                        <li><a href="#contact">Контакты</a></li>
-                    </ul>
+                <nav class="d-flex align-items-center">
+                    <div class="mr-auto">
+                        <ul>
+                            <li><a href="#hello">О себе</a></li>
+                            <li><a href="#resume">Резюме</a></li>
+                            <!--<li><a href="#portfolio">Портфолио</a></li>-->
+                            <!--<li><a href="#testimonials">Отзывы</a></li>-->
+                            <!--<li><a href="#blog">Блог</a></li>-->
+                            <li><a href="#contact">Контакты</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <select class="select-language">
+                            @foreach($locales as $lang)
+                                <option data-data='{"flag": "{{$lang['flag']}}"}' value="?lang={{ $lang['code'] }}"
+                                        @if($locale == $lang['code']) selected @endif>
+                                    {{ $lang['name'] }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
                 </nav>
             </div>
-            <div class="menu__wrapper col-md-12 d-lg-none">
-                <button type="button" class="menu__mobile-button">
+
+
+            <div class="menu__wrapper col-md-12 d-lg-none d-flex align-items-center">
+                <button type="button" class="menu__mobile-button mr-auto">
                     <span><i class="icon-menu"></i></span>
                 </button>
+
+                <div>
+                    <select class="select-language">
+                        @foreach($locales as $lang)
+                            <option data-data='{"flag": "{{$lang['flag']}}"}' value="?lang={{ $lang['code'] }}"
+                                    @if($locale == $lang['code']) selected @endif>
+                                {{ $lang['name'] }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
             </div>
         </div>
     </div>
