@@ -108,12 +108,12 @@
 <section id="hello" class="container section">
     <div class="row">
         <div class="col-md-10">
-            <h2 id="hello_header" class="section__title" style="text-indent: 0;">О себе_</h2>
+            <h2 id="hello_header" class="section__title" style="text-indent: 0;"></h2>
             <p class="section__description">
-                Интересуюсь web-разработкой в любом её виде. Специализируюсь на backend разработке.<br>
-                Готов к работе в команде и индивидуально. Коммуникабелен, стрессоустойчив.<br>
+                Занимаюсь backend-разработкой, в основном это PHP с использованием фреймворков. <br>
+                Готов к работе в команде и индивидуально. <br>
                 В наличии желание постоянно изучать что-то новое и неизвестное. <br>
-                Есть интересные проекты? Пишите!
+                Увлекаюсь музыкой, играю в группе на гитаре, люблю новые интересные места. <br>
             </p>
             <a href="uploads/alymov-resume.pdf" target="_blank" class="section_btn site-btn">
                 <img src="images/img_btn_icon.png" alt="resume">Скачать резюме
@@ -130,13 +130,14 @@
     <div class="row">
         <div class="col-md-10">
             <h2 id="resume_header" class="section__title" style="text-indent: 0;">Резюме_</h2>
-            <p class="section__description">
-                Во время своей трудовой деятельности я постоянно узнаю что-то новое и чему-то учусь, так как прогресс в
-                IT-отрасли никогда не стоит на месте. Во многом этим меня и привлекает web-разработка,
-                ведь любой сайт или web-приложение всегда можно улучшить.
-                Использование различных подходов и новых технологий позволяет мне постоянно расширять свой
-                профессиональный кругозор, оставаясь в курсе современных web-технологий.
-            </p>
+            <ul>
+                <li><strong>Backend</strong>: PHP, Laravel;</li>
+                <li><strong>Frontend</strong>: JS, Vue.js, HTML5, CSS3;</li>
+                <li><strong>Базы</strong>&nbsp;<strong>данных</strong>: PostgreSQL, MySQL;<br></li>
+                <li><strong>Системы контроля версий</strong>:&nbsp;Git;</li>
+            </ul>
+            <strong>Английский язык</strong>: Pre-intermediate (читаю профессиональную литературу и статьи).&nbsp;
+
         </div>
     </div>
     <div class="row">
