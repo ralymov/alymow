@@ -1,8 +1,8 @@
-# alymow.ru
+# alymov.dev
 
 Portfolio website of web developer
 
-[Live website](http://alymow.ru)
+[Live website](https://alymov.dev)
 
 ## License
 
