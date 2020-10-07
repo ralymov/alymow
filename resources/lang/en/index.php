@@ -45,5 +45,5 @@ return [
     'contact_me' => 'Just text me',
     'form_name' => 'Your name',
     'form_email' => 'Your e-mail',
-    'form_message' => 'Enter your message there',
+    'form_message' => 'Enter your message here',
 ];
