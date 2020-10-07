@@ -2,8 +2,9 @@
 
 namespace App\Http\Middleware;
 
-use Illuminate\Support\Facades\App;
 use Closure;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
 
 class LanguageMiddleware
@@ -18,13 +19,12 @@ class LanguageMiddleware
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  \Closure $next
+     * @param Request $request
+     * @param Closure $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle(Request $request, Closure $next)
     {
-        $lang = $request->lang;
         $locale = $this->getLocale($request);
 
         if (!Session::has('locale') || Session::get('locale') !== $locale) {
@@ -39,9 +39,8 @@ class LanguageMiddleware
     private function getLocale($request): string
     {
         if (!empty($request->lang)) {
-            $code = mb_strtolower($request->lang);
-            return $code ?? $this->fallbackLocale;
+            return mb_strtolower($request->lang);
         }
-        return $this->fallbackLocale;
+        return $request->getPreferredLanguage(['en', 'ru']);
     }
 }
