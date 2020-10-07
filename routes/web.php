@@ -1,7 +1,4 @@
 <?php
 
-Route::get('/', function () {
-    return view('index');
-});
-
+Route::get('/', 'SiteController@index');
 Route::post('mail', 'MailController@index');
