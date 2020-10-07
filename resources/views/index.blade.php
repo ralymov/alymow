@@ -193,7 +193,7 @@
     </div>
     <div class="row">
         <div class="col-md-8 section__resume resume-list">
-            <h3 class="resume-list_title">{{ __('index.eduction_title') }}</h3>
+            <h3 class="resume-list_title">{{ __('index.education_title') }}</h3>
             <div class="resume-list__block">
                 <p class="resume-list__block-title">{{ __('index.ASTU') }}</p>
                 <p class="resume-list__block-date">2017 - 2019</p>
