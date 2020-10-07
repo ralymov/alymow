@@ -2,24 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\App;
+
 class SiteController extends Controller
 {
     public function index()
     {
         $locales = [
             [
-                'code' => 'RU',
+                'code' => 'ru',
                 'name' => 'Русский',
                 'flag' => '/images/ru-flag.svg',
             ],
             [
-                'code' => 'EN',
+                'code' => 'en',
                 'name' => 'English',
                 'flag' => '/images/en-flag.svg',
             ],
         ];
+
         return view('index', [
-            'locale' => 'RU',
+            'locale' => App::getLocale(),
             'locales' => $locales
         ]);
     }
