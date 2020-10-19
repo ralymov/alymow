@@ -25,6 +25,7 @@ return [
               Love music, play the guitar in a band, like travel to interesting places. <br>
     ',
     'about_save_cv' => 'Save CV',
+    'about_save_cv_link' => 'https://www.notion.so/alymov/CV-Roman-Alymov-acbc52ad27d541bdada530de9b984608',
 
     'databases' => 'Databases',
     'cvs' => 'Version control systems',

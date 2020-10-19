@@ -137,7 +137,7 @@
             <p class="section__description">
                 {!! __('index.about_description') !!}
             </p>
-            <a href="uploads/alymov-resume.pdf" target="_blank" class="section_btn site-btn">
+            <a href="{{ __('index.about_save_cv_link') }}" target="_blank" class="section_btn site-btn">
                 <img src="images/img_btn_icon.png" alt="resume">{{ __('index.about_save_cv') }}
             </a>
         </div>
