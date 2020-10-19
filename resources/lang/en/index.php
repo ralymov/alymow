@@ -20,7 +20,7 @@ return [
     'about_location' => 'Russia, Astrakhan',
     'about_description' => '
               Backend developer, mainly PHP using frameworks. <br>
-              Ready to work as a team and individually. <br>
+              Ready to work in a team and individually. <br>
               Constantly try to learn something new. <br>
               Love music, play the guitar in a band, like travel to interesting places. <br>
     ',

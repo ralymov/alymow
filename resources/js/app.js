@@ -195,11 +195,11 @@ function initLanguagePicker () {
     },
     render: {
       item: function (item) {
-        return '<div>' + item.text + '<img style="margin-left:8px;margin-bottom:4px; width:16px;" ' +
+        return '<div class="d-flex align-items-center p-1">' + item.text + '<img style="margin-left:8px;width:16px;" ' +
           'class="language-flag" src="' + item.flag + '"></div>'
       },
       option: function (item) {
-        return '<div class="d-flex align-items-center p-1"><div class="mr-auto">' + item.text + '</div><img style="width:16px;" ' +
+        return '<div class="d-flex align-items-center p-1"><div class="mr-auto">' + item.text + '</div><img style="width:16px;margin-bottom:1px;" ' +
           'class="language-flag" src="' + item.flag + '"></div>'
       }
     },

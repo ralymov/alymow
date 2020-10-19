@@ -1252,3 +1252,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 .selectize-control.single .selectize-input.input-active, .selectize-control.single .selectize-input.input-active input {
   cursor: pointer;
 }
+
+.selectize-control.single .selectize-input:after {
+  display: none;
+}
