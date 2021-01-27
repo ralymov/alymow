@@ -119,8 +119,7 @@
                 </div>
                 <p class="personal-profile__social">
                     <a href="https://github.com/ralymov" target="_blank"><i class="icon-github-circled"></i></a>
-                    <a href="https://www.linkedin.com/in/%D1%80%D0%BE%D0%BC%D0%B0%D0%BD-%D0%B0%D0%BB%D1%8B%D0%BC%D0%BE%D0%B2-a941b1110/"
-                       target="_blank"><i class="icon-linkedin-squared"></i></a>
+                    <a href="www.linkedin.com/in/ralymov" target="_blank"><i class="icon-linkedin-squared"></i></a>
                     <a href="https://t.me/ralymov" target="_blank"><i class="icon-telegram"></i></a>
                 </p>
             </div>
