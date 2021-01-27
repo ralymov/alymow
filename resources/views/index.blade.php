@@ -336,8 +336,7 @@
                     <ul>
                         <li><a href="https://github.com/ralymov" target="_blank">GitHub</a></li>
                         <li>
-                            <a target="_blank"
-                               href="https://www.linkedin.com/in/%D1%80%D0%BE%D0%BC%D0%B0%D0%BD-%D0%B0%D0%BB%D1%8B%D0%BC%D0%BE%D0%B2-a941b1110/">
+                            <a target="_blank" href="www.linkedin.com/in/ralymov">
                                 Linkedin
                             </a>
                         </li>
