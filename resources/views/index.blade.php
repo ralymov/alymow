@@ -119,7 +119,7 @@
                 </div>
                 <p class="personal-profile__social">
                     <a href="https://github.com/ralymov" target="_blank"><i class="icon-github-circled"></i></a>
-                    <a href="www.linkedin.com/in/ralymov" target="_blank"><i class="icon-linkedin-squared"></i></a>
+                    <a href="https://www.linkedin.com/in/ralymov" target="_blank"><i class="icon-linkedin-squared"></i></a>
                     <a href="https://t.me/ralymov" target="_blank"><i class="icon-telegram"></i></a>
                 </p>
             </div>
@@ -335,7 +335,7 @@
                     <ul>
                         <li><a href="https://github.com/ralymov" target="_blank">GitHub</a></li>
                         <li>
-                            <a target="_blank" href="www.linkedin.com/in/ralymov">
+                            <a target="_blank" href="https://www.linkedin.com/in/ralymov">
                                 Linkedin
                             </a>
                         </li>
