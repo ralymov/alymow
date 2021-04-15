@@ -332,6 +332,17 @@ WHERE orders.date >
       (SELECT dates.date
        FROM dates
        LIMIT 1);</pre>
+
+                        Также, возможный вариант решения данной задачи - партицирование. То есть выделить нужные нам данные (с датой больше
+                        указанной) в отдельную секцию. Таким образом, блоки с датами, не входящими в условие, даже не
+                        будут начинать читаться движком с диска.
+
+                        <pre>
+ALTER TABLE orders
+PARTITION BY RANGE (TO_DAYS(`date`)) (
+PARTITION `p0` VALUES LESS THAN (TO_DAYS('2021-01-01 00:00:00')),
+PARTITION `p1` VALUES LESS THAN MAXVALUE
+);</pre>
                     </li>
                 </ol>
             </div>
