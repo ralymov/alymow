@@ -62,6 +62,7 @@ function initProgressList () {
   let element = document.querySelector('.progress-list')
   let progressBars = document.getElementsByClassName('progress-bar')
   let bars = []
+  if (!element) return
   Array.from(progressBars).forEach(element => {
     bars.push({
       animation: new ProgressBar.Line(element, { color: '#6d56c1', duration: 1000, easing: 'easeInOut' }),

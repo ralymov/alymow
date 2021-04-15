@@ -1,4 +1,4 @@
 <?php
 
 Route::get('/', 'SiteController@index');
-Route::post('mail', 'MailController@index');
+Route::get('/veeam', 'SiteController@veeam');

@@ -26,4 +26,25 @@ class SiteController extends Controller
             'locales' => $locales
         ]);
     }
+
+    public function veeam()
+    {
+        $locales = [
+            [
+                'code' => 'ru',
+                'name' => 'Русский',
+                'flag' => '/images/ru-flag.svg',
+            ],
+            [
+                'code' => 'en',
+                'name' => 'English',
+                'flag' => '/images/en-flag.svg',
+            ],
+        ];
+
+        return view('veeam', [
+            'locale' => App::getLocale(),
+            'locales' => $locales
+        ]);
+    }
 }
