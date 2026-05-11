@@ -1,12 +1,13 @@
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://alymov.dev/sitemap.xml
-
 # Block sensitive paths
+Disallow: /veeam
 Disallow: /admin
 Disallow: /storage
 Disallow: /.env
 Disallow: /vendor
 Disallow: /node_modules
+
+# Sitemap
+Sitemap: https://alymov.dev/sitemap.xml

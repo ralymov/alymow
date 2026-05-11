@@ -12,11 +12,4 @@ class SiteController extends Controller
             'locale' => App::getLocale(),
         ]);
     }
-
-    public function veeam()
-    {
-        return view('veeam', [
-            'locale' => App::getLocale(),
-        ]);
-    }
 }
