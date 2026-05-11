@@ -6,11 +6,10 @@ return [
     'ASTU' => 'Astrakhan State Technical University',
     'skills' => 'Skills',
     'contact' => 'Contact',
-    'send' => 'Send Message',
 
     'menu_about' => 'About',
     'menu_cv' => 'CV',
-    'menu_contact' => 'Contacts',
+    'menu_skills' => 'Skills',
 
     'about_name' => 'Roman Alymov',
     'about_work' => 'Backend Developer',
@@ -30,7 +29,7 @@ return [
     'databases' => 'Databases',
     'cvs' => 'Version Control',
     'english_language' => 'English',
-    'english_level' => 'Pre-intermediate (B1)',
+    'english_level' => 'Upper-intermediate (B2)',
 
     'work_title' => 'Work Experience',
     'work_until_now' => 'present',
@@ -43,10 +42,9 @@ return [
     'education_1_description' => "Master's degree — Software for Automated Systems",
     'education_2_description' => "Bachelor's degree — Computer Information Security",
 
-    'contact_me' => 'Get in Touch',
-    'form_name' => 'Your Name',
-    'form_email' => 'Your Email',
-    'form_message' => 'Your Message',
-    'form_success' => 'Thank you! Your message has been sent successfully.',
-    'form_error' => 'An error occurred. Please try again later.',
+    'project_veeam_title' => 'Veeam Backup & Replication',
+    'project_veeam_subtitle' => 'Enterprise Backup Solution Implementation',
+    'project_veeam_description' => 'Implementation of a corporate backup and replication solution. The project covered analysis of existing infrastructure, deployment of Veeam B&R v12, configuration of backup jobs for VMware vSphere virtual machines, and integration with Active Directory.',
+    'project_veeam_what_done' => 'What was done:',
+    'project_veeam_tech' => 'Technologies used:',
 ];

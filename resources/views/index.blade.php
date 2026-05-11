@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="ru" prefix="og: https://ogp.me/ns#">
+<html lang="en" prefix="og: https://ogp.me/ns#">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Роман Алымов — Backend Developer | PHP, Laravel, VueJS</title>
-    <meta name="title" content="Роман Алымов — Backend Developer | PHP, Laravel, VueJS">
-    <meta name="description" content="Backend developer Roman Alymov. Professional development of web applications in PHP, Laravel, VueJS. Based in Prague, Czech Republic.">
+    <title>{{ __('index.title') }}</title>
+    <meta name="title" content="{{ __('index.title') }}">
+    <meta name="description" content="{{ __('index.meta_description') }}">
     <meta name="author" content="Roman Alymov">
     <link rel="canonical" href="https://alymov.dev/">
+
     <meta property="og:type" content="profile">
     <meta property="og:url" content="https://alymov.dev/">
     <meta property="og:title" content="Roman Alymov — Backend Developer">
@@ -16,17 +17,20 @@
     <meta property="og:image" content="https://alymov.dev/images/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:locale" content="ru_RU">
+    <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="Roman Alymov — Portfolio">
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://alymov.dev/">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://alymov.dev/">
     <meta name="twitter:title" content="Roman Alymov — Backend Developer">
     <meta name="twitter:description" content="Backend developer. PHP, Laravel, VueJS. Professional development of web applications.">
     <meta name="twitter:image" content="https://alymov.dev/images/og-image.jpg">
     <meta name="twitter:site" content="@ElectricW1zard">
     <meta name="twitter:creator" content="@ElectricW1zard">
+
     <meta name="yandex-verification" content="990fe82cf8b2bd0b"/>
     <meta name="google-site-verification" content="CoXeOH2LsLULgCRmocM6-RU1FCjZWsAZrULnBRBqGG4"/>
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -42,17 +46,20 @@
       ]
     }
     </script>
+
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
     <link rel="manifest" href="/favicon/site.webmanifest">
     <meta name="theme-color" content="#6d56c1">
+
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Mono:wght@400;700&family=Inconsolata:wght@400;700&display=swap" rel="preconnect" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Mono:wght@400;700&family=Inconsolata:wght@400;700&display=swap" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
+
 <div class="menu">
     <div class="container">
         <div class="row">
@@ -62,19 +69,13 @@
                         <ul>
                             <li><a href="#hello">{{ __('index.menu_about') }}</a></li>
                             <li><a href="#resume">{{ __('index.menu_cv') }}</a></li>
-                            <li><a href="#skills">{{ __('index.skills') }}</a></li>
-                            <li><a href="#contact">{{ __('index.menu_contact') }}</a></li>
+                            <li><a href="#skills">{{ __('index.menu_skills') }}</a></li>
                         </ul>
                     </div>
-                    <div>
-                        <select class="select-language" aria-label="Language selection">
-                            @foreach($locales as $lang)
-                                <option data-data='{"flag": "{{$lang['flag']}}"}' value="?lang={{ $lang['code'] }}"
-                                    @if($locale == $lang['code']) selected @endif>
-                                    {{$lang['name']}}
-                                </option>
-                            @endforeach
-                        </select>
+                    <div class="menu__lang">
+                        <a href="?lang=en" class="menu__lang-link" title="English">EN</a>
+                        <span class="menu__lang-sep">/</span>
+                        <a href="?lang=ru" class="menu__lang-link" title="Русский">РУ</a>
                     </div>
                 </nav>
             </div>
@@ -82,20 +83,16 @@
                 <button type="button" class="menu__mobile-button mr-auto" aria-label="Open menu">
                     <span><i class="icon-menu"></i></span>
                 </button>
-                <div>
-                    <select class="select-language" aria-label="Language selection">
-                        @foreach($locales as $lang)
-                            <option data-data='{"flag": "{{$lang['flag']}}"}' value="?lang={{ $lang['code'] }}"
-                                @if($locale == $lang['code']) selected @endif>
-                                {{$lang['name']}}
-                            </option>
-                        @endforeach
-                    </select>
+                <div class="menu__lang">
+                    <a href="?lang=en" class="menu__lang-link" title="English">EN</a>
+                    <span class="menu__lang-sep">/</span>
+                    <a href="?lang=ru" class="menu__lang-link" title="Русский">РУ</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 <div class="mobile-menu d-lg-none" role="dialog" aria-label="Mobile menu">
     <div class="container">
         <div class="mobile-menu__close"><span><i class="icon-cancel"></i></span></div>
@@ -103,12 +100,12 @@
             <ul>
                 <li><a href="#hello">{{ __('index.menu_about') }}</a></li>
                 <li><a href="#resume">{{ __('index.menu_cv') }}</a></li>
-                <li><a href="#skills">{{ __('index.skills') }}</a></li>
-                <li><a href="#contact">{{ __('index.menu_contact') }}</a></li>
+                <li><a href="#skills">{{ __('index.menu_skills') }}</a></li>
             </ul>
         </nav>
     </div>
 </div>
+
 <header class="main-header" role="banner">
     <div class="container">
         <div class="row personal-profile">
@@ -121,7 +118,7 @@
                 <div class="personal-profile__contacts">
                     <dl class="contact-list contact-list__opacity-titles">
                         <dt>{{ __('index.about_age') }}</dt>
-                        <dd>{{Carbon\Carbon::parse('23.04.1996')->age}}</dd>
+                        <dd>29</dd>
                         <dt>{{ __('index.about_phone') }}</dt>
                         <dd><a href="tel:+420778112355" dir="ltr">+420 778 112 355</a></dd>
                         <dt>Email:</dt>
@@ -145,29 +142,32 @@
         </div>
     </div>
 </header>
+
 <section id="hello" class="container section">
     <div class="row">
         <div class="col-md-10">
             <h2 id="hello_header" class="section__title" style="text-indent: 0;"></h2>
             <p class="section__description">{!! __('index.about_description') !!}</p>
             <a href="{{ __('index.about_save_cv_link') }}" target="_blank" rel="noopener noreferrer" class="section_btn site-btn">
-                <img src="images/img_btn_icon.png" alt="" aria-hidden="true">{{ __('index.about_save_cv') }}
+                <img src="/images/img_btn_icon.png" alt="" aria-hidden="true">{{ __('index.about_save_cv') }}
             </a>
         </div>
     </div>
 </section>
+
 <hr>
+
 <section id="resume" class="container section" aria-label="Resume">
     <div class="row">
         <div class="col-md-10">
             <h2 id="resume_header" class="section__title" style="text-indent: 0;">{{ __('index.menu_cv') }}</h2>
-            <ul>
-                <li><strong>Backend</strong>: PHP, Laravel;</li>
-                <li><strong>Frontend</strong>: JS, Vue.js, HTML5, CSS3;</li>
-                <li><strong>{{ __('index.databases') }}</strong>: PostgreSQL, MySQL;<br></li>
-                <li><strong>{{ __('index.cvs') }}</strong>:&nbsp;Git, Docker, CI/CD;</li>
+            <ul class="skills-inline">
+                <li><strong>Backend</strong>: PHP, Laravel</li>
+                <li><strong>Frontend</strong>: JS, Vue.js, HTML5, CSS3</li>
+                <li><strong>{{ __('index.databases') }}</strong>: PostgreSQL, MySQL</li>
+                <li><strong>{{ __('index.cvs') }}</strong>: Git, Docker, CI/CD</li>
             </ul>
-            <strong>{{ __('index.english_language') }}</strong>: {{ __('index.english_level') }}
+            <p class="english-level"><strong>{{ __('index.english_language') }}</strong>: {{ __('index.english_level') }}</p>
         </div>
     </div>
     <div class="row">
@@ -175,17 +175,17 @@
             <h3 class="resume-list_title">{{ __('index.work_title') }}</h3>
             <div class="resume-list__block">
                 <p class="resume-list__block-title">Vigrom</p>
-                <p class="resume-list__block-date">2019 - {{ __('index.work_until_now') }}</p>
+                <p class="resume-list__block-date">2019 — {{ __('index.work_until_now') }}</p>
                 <p><b>Backend PHP Developer</b><br>{{ __('index.work_1_description') }}</p>
             </div>
             <div class="resume-list__block">
                 <p class="resume-list__block-title">Webmechanic</p>
-                <p class="resume-list__block-date">2017 - 2019</p>
+                <p class="resume-list__block-date">2017 — 2019</p>
                 <p><b>Web Developer</b><br>{{ __('index.work_2_description') }}</p>
             </div>
             <div class="resume-list__block">
                 <p class="resume-list__block-title">{{ __('index.ASTU') }}</p>
-                <p class="resume-list__block-date">2015 - 2017</p>
+                <p class="resume-list__block-date">2015 — 2017</p>
                 <p><b>{{ __('index.work_3_title') }}</b><br>{{ __('index.work_3_description') }}</p>
             </div>
         </div>
@@ -195,17 +195,18 @@
             <h3 class="resume-list_title">{{ __('index.education_title') }}</h3>
             <div class="resume-list__block">
                 <p class="resume-list__block-title">{{ __('index.ASTU') }}</p>
-                <p class="resume-list__block-date">2017 - 2019</p>
+                <p class="resume-list__block-date">2017 — 2019</p>
                 <p>{{ __('index.education_1_description') }}</p>
             </div>
             <div class="resume-list__block">
                 <p class="resume-list__block-title">{{ __('index.ASTU') }}</p>
-                <p class="resume-list__block-date">2013 - 2017</p>
+                <p class="resume-list__block-date">2013 — 2017</p>
                 <p>{{ __('index.education_2_description') }}</p>
             </div>
         </div>
     </div>
 </section>
+
 <section id="skills" class="container section" aria-label="Skills">
     <div class="row">
         <div class="col-md-10">
@@ -258,32 +259,27 @@
             </div>
         </div>
     </div>
-    <div class="row" style="margin-top:30px;">
-        <div class="col-md-10" style="background:rgba(109,86,193,0.08);padding:30px;border-radius:12px;border:1px solid rgba(109,86,193,0.15);">
-            <h3 style="font-family:'Roboto Mono',monospace;font-size:16px;line-height:24px;text-transform:uppercase;letter-spacing:3px;color:#6d56c1;margin-bottom:15px;">🤖 AI &amp; ML Skills</h3>
-            <div class="row" style="margin-top:15px;">
-                <div class="col-md-5">
-                    <ul style="list-style:none;padding:0;">
-                        <li style="padding:5px 0;padding-left:20px;position:relative;">✦ LangChain / LlamaIndex</li>
-                        <li style="padding:5px 0;padding-left:20px;position:relative;">✦ RAG (Retrieval-Augmented Generation)</li>
-                        <li style="padding:5px 0;padding-left:20px;position:relative;">✦ LLM Integration (GPT-4, Claude, Llama, Mistral)</li>
-                        <li style="padding:5px 0;padding-left:20px;position:relative;">✦ Prompt Engineering</li>
-                        <li style="padding:5px 0;padding-left:20px;position:relative;">✦ AI Agents &amp; Tooling</li>
-                    </ul>
-                </div>
-                <div class="col-md-5">
-                    <ul style="list-style:none;padding:0;">
-                        <li style="padding:5px 0;padding-left:20px;position:relative;">✦ Python (NumPy, Pandas, Scikit-learn)</li>
-                        <li style="padding:5px 0;padding-left:20px;position:relative;">✦ TensorFlow / PyTorch Basics</li>
-                        <li style="padding:5px 0;padding-left:20px;position:relative;">✦ Vector Databases (Pinecone, Weaviate)</li>
-                        <li style="padding:5px 0;padding-left:20px;position:relative;">✦ OpenAI API / HuggingFace Transformers</li>
-                        <li style="padding:5px 0;padding-left:20px;position:relative;">✦ Fine-tuning &amp; Embeddings</li>
-                    </ul>
-                </div>
-            </div>
+    <div class="ai-section">
+        <h3>🤖 AI &amp; ML Skills</h3>
+        <div class="ai-skills-grid">
+            <ul>
+                <li>LangChain / LlamaIndex</li>
+                <li>RAG (Retrieval-Augmented Generation)</li>
+                <li>LLM Integration (GPT-4, Claude, Llama, Mistral)</li>
+                <li>Prompt Engineering</li>
+                <li>AI Agents &amp; Tooling</li>
+            </ul>
+            <ul>
+                <li>Python (NumPy, Pandas, Scikit-learn)</li>
+                <li>TensorFlow / PyTorch Basics</li>
+                <li>Vector Databases (Pinecone, Weaviate)</li>
+                <li>OpenAI API / HuggingFace Transformers</li>
+                <li>Fine-tuning &amp; Embeddings</li>
+            </ul>
         </div>
     </div>
 </section>
+
 <div class="background" id="contact">
     <div class="container section">
         <div class="row">
@@ -302,7 +298,7 @@
                         <dt>Email:</dt>
                         <dd><a href="mailto:romanalym@gmail.com" dir="ltr">romanalym@gmail.com</a></dd>
                         <dt>{{ __('index.about_place') }}</dt>
-                        <dd>Prague, Czech Republic</dd>
+                        <dd>{{ __('index.about_location') }}</dd>
                     </dl>
                 </div>
                 <div class="contacts__social">
@@ -323,16 +319,17 @@
         </div>
     </div>
 </div>
-<link rel="alternate" hreflang="ru" href="https://alymov.dev/?lang=ru" />
+
 <link rel="alternate" hreflang="en" href="https://alymov.dev/?lang=en" />
+<link rel="alternate" hreflang="ru" href="https://alymov.dev/?lang=ru" />
 <link rel="alternate" hreflang="x-default" href="https://alymov.dev/" />
 <script src="/js/app.js"></script>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
    m[i].l=1*new Date();
-   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }};
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)});
    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
    ym(12345678, "init", {clickmap:true,trackLinks:true,accurateTrackBoutique:true});
 </script>
