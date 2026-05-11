@@ -1,70 +1,93 @@
 <!DOCTYPE html>
-<html lang="ru">
-
+<html lang="ru" prefix="og: https://ogp.me/ns#">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="{{ __('index.meta_description') }}">
-    <meta name="keywords" content="PHP,Laravel,VueJS,JavaScript,HTML,CSS">
-    <meta name="author" content="Роман Алымов">
+    <title>Роман Алымов — Backend Developer | PHP, Laravel, VueJS</title>
+    <meta name="title" content="Роман Алымов — Backend Developer | PHP, Laravel, VueJS">
+    <meta name="description" content="Backend developer Roman Alymov. Professional development of web applications in PHP, Laravel, VueJS. Based in Prague, Czech Republic.">
+    <meta name="author" content="Roman Alymov">
+    <link rel="canonical" href="https://alymov.dev/">
+    <meta property="og:type" content="profile">
+    <meta property="og:url" content="https://alymov.dev/">
+    <meta property="og:title" content="Roman Alymov — Backend Developer">
+    <meta property="og:description" content="Backend developer. PHP, Laravel, VueJS. Professional development of web applications.">
+    <meta property="og:image" content="https://alymov.dev/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="Roman Alymov — Portfolio">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://alymov.dev/">
+    <meta name="twitter:title" content="Roman Alymov — Backend Developer">
+    <meta name="twitter:description" content="Backend developer. PHP, Laravel, VueJS. Professional development of web applications.">
+    <meta name="twitter:image" content="https://alymov.dev/images/og-image.jpg">
+    <meta name="twitter:site" content="@ElectricW1zard">
+    <meta name="twitter:creator" content="@ElectricW1zard">
     <meta name="yandex-verification" content="990fe82cf8b2bd0b"/>
     <meta name="google-site-verification" content="CoXeOH2LsLULgCRmocM6-RU1FCjZWsAZrULnBRBqGG4"/>
-    <link rel="canonical" href="https://alymow.ru"/>
-    <title>{{ __('index.title') }}</title>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Roman Alymov",
+      "url": "https://alymov.dev",
+      "description": "Backend developer. Professional development of web applications using PHP, Laravel, VueJS.",
+      "jobTitle": "Backend Developer",
+      "sameAs": [
+        "https://github.com/ralymov",
+        "https://www.linkedin.com/in/ralymov",
+        "https://t.me/ElectricW1zard"
+      ]
+    }
+    </script>
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
     <link rel="manifest" href="/favicon/site.webmanifest">
+    <meta name="theme-color" content="#6d56c1">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Mono:wght@400;700&family=Inconsolata:wght@400;700&display=swap" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Mono:wght@400;700&family=Inconsolata:wght@400;700&display=swap" rel="stylesheet">
     <link href="{{ mix('css/style.css') }}" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono|Inconsolata" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
-
 <body>
-
-<!--Main menu-->
 <div class="menu">
     <div class="container">
         <div class="row">
             <div class="menu__wrapper d-none d-lg-block col-md-12">
-                <nav class="d-flex align-items-center">
+                <nav class="d-flex align-items-center" aria-label="Main navigation">
                     <div class="mr-auto">
                         <ul>
                             <li><a href="#hello">{{ __('index.menu_about') }}</a></li>
                             <li><a href="#resume">{{ __('index.menu_cv') }}</a></li>
-                            <!--<li><a href="#portfolio">Портфолио</a></li>-->
-                            <!--<li><a href="#testimonials">Отзывы</a></li>-->
-                            <!--<li><a href="#blog">Блог</a></li>-->
+                            <li><a href="#skills">{{ __('index.skills') }}</a></li>
                             <li><a href="#contact">{{ __('index.menu_contact') }}</a></li>
                         </ul>
                     </div>
-
                     <div>
-                        <select class="select-language">
+                        <select class="select-language" aria-label="Language selection">
                             @foreach($locales as $lang)
                                 <option data-data='{"flag": "{{$lang['flag']}}"}' value="?lang={{ $lang['code'] }}"
-                                        @if($locale == $lang['code']) selected @endif>
-                                    {{ $lang['name'] }}
+                                    @if($locale == $lang['code']) selected @endif>
+                                    {{$lang['name']}}
                                 </option>
                             @endforeach
                         </select>
                     </div>
                 </nav>
             </div>
-
-
             <div class="menu__wrapper col-md-12 d-lg-none d-flex align-items-center">
-                <button type="button" class="menu__mobile-button mr-auto">
+                <button type="button" class="menu__mobile-button mr-auto" aria-label="Open menu">
                     <span><i class="icon-menu"></i></span>
                 </button>
-
                 <div>
-                    <select class="select-language">
+                    <select class="select-language" aria-label="Language selection">
                         @foreach($locales as $lang)
                             <option data-data='{"flag": "{{$lang['flag']}}"}' value="?lang={{ $lang['code'] }}"
-                                    @if($locale == $lang['code']) selected @endif>
-                                {{ $lang['name'] }}
+                                @if($locale == $lang['code']) selected @endif>
+                                {{$lang['name']}}
                             </option>
                         @endforeach
                     </select>
@@ -73,92 +96,78 @@
         </div>
     </div>
 </div>
-<!--Main menu-->
-
-<!-- Mobile menu -->
-<div class="mobile-menu d-lg-none">
+<div class="mobile-menu d-lg-none" role="dialog" aria-label="Mobile menu">
     <div class="container">
-        <div class="mobile-menu__close">
-            <span><i class="icon-cancel"></i></span>
-        </div>
+        <div class="mobile-menu__close"><span><i class="icon-cancel"></i></span></div>
         <nav class="mobile-menu__wrapper">
             <ul>
                 <li><a href="#hello">{{ __('index.menu_about') }}</a></li>
                 <li><a href="#resume">{{ __('index.menu_cv') }}</a></li>
-                <!--<li><a href="#portfolio">Портфолио</a></li>-->
-                <!--<li><a href="#testimonials">Отзывы</a></li>-->
-                <!--<li><a href="#blog">Блог</a></li>-->
+                <li><a href="#skills">{{ __('index.skills') }}</a></li>
                 <li><a href="#contact">{{ __('index.menu_contact') }}</a></li>
             </ul>
         </nav>
     </div>
 </div>
-<!-- Mobile menu -->
-
-<!--Header-->
-<header class="main-header">
+<header class="main-header" role="banner">
     <div class="container">
         <div class="row personal-profile">
-            <div class="col-md-4 personal-profile__avatar">
-                <div class="profile-image"></div>
+            <div class="col-md-4 col-lg-3 personal-profile__avatar">
+                <div class="profile-image" role="img" aria-label="Photo of Roman Alymov"></div>
             </div>
-            <div class="col-md-8">
-                <h1 class="personal-profile__name">{{ __('index.about_name') }}_</h1>
+            <div class="col-md-8 col-lg-9 text-center text-md-start">
+                <h1 class="personal-profile__name">{{ __('index.about_name') }}</h1>
                 <p class="personal-profile__work">{{ __('index.about_work') }}</p>
                 <div class="personal-profile__contacts">
                     <dl class="contact-list contact-list__opacity-titles">
                         <dt>{{ __('index.about_age') }}</dt>
                         <dd>{{Carbon\Carbon::parse('23.04.1996')->age}}</dd>
                         <dt>{{ __('index.about_phone') }}</dt>
-                        <dd><a href="tel:82344563333">8 (967) 826-07-18</a></dd>
+                        <dd><a href="tel:+420778112355" dir="ltr">+420 778 112 355</a></dd>
                         <dt>Email:</dt>
-                        <dd><a href="mailto:romanalym@gmail.com">romanalym@gmail.com</a></dd>
+                        <dd><a href="mailto:romanalym@gmail.com" dir="ltr">romanalym@gmail.com</a></dd>
                         <dt>{{ __('index.about_place') }}</dt>
                         <dd>{{ __('index.about_location') }}</dd>
                     </dl>
                 </div>
                 <p class="personal-profile__social">
-                    <a href="https://github.com/ralymov" target="_blank"><i class="icon-github-circled"></i></a>
-                    <a href="https://www.linkedin.com/in/ralymov" target="_blank"><i class="icon-linkedin-squared"></i></a>
-                    <a href="https://t.me/ralymov" target="_blank"><i class="icon-telegram"></i></a>
+                    <a href="https://github.com/ralymov" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+                        <i class="icon-github-circled"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ralymov" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+                        <i class="icon-linkedin-squared"></i>
+                    </a>
+                    <a href="https://t.me/ElectricW1zard" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+                        <i class="icon-telegram"></i>
+                    </a>
                 </p>
             </div>
         </div>
     </div>
 </header>
-<!--Header-->
-
-<!--Hello-->
 <section id="hello" class="container section">
     <div class="row">
         <div class="col-md-10">
             <h2 id="hello_header" class="section__title" style="text-indent: 0;"></h2>
-            <p class="section__description">
-                {!! __('index.about_description') !!}
-            </p>
-            <a href="{{ __('index.about_save_cv_link') }}" target="_blank" class="section_btn site-btn">
-                <img src="images/img_btn_icon.png" alt="resume">{{ __('index.about_save_cv') }}
+            <p class="section__description">{!! __('index.about_description') !!}</p>
+            <a href="{{ __('index.about_save_cv_link') }}" target="_blank" rel="noopener noreferrer" class="section_btn site-btn">
+                <img src="images/img_btn_icon.png" alt="" aria-hidden="true">{{ __('index.about_save_cv') }}
             </a>
         </div>
     </div>
 </section>
-<!--Hello-->
-
 <hr>
-
-<!--Resume-->
-<section id="resume" class="container section">
+<section id="resume" class="container section" aria-label="Resume">
     <div class="row">
         <div class="col-md-10">
-            <h2 id="resume_header" class="section__title" style="text-indent: 0;">{{ __('index.menu_cv') }}_</h2>
+            <h2 id="resume_header" class="section__title" style="text-indent: 0;">{{ __('index.menu_cv') }}</h2>
             <ul>
                 <li><strong>Backend</strong>: PHP, Laravel;</li>
                 <li><strong>Frontend</strong>: JS, Vue.js, HTML5, CSS3;</li>
                 <li><strong>{{ __('index.databases') }}</strong>: PostgreSQL, MySQL;<br></li>
-                <li><strong>{{ __('index.cvs') }}</strong>:&nbsp;Git;</li>
+                <li><strong>{{ __('index.cvs') }}</strong>:&nbsp;Git, Docker, CI/CD;</li>
             </ul>
-            <strong>{{ __('index.english_language') }}</strong>:
-            {{ __('index.english_level') }}
+            <strong>{{ __('index.english_language') }}</strong>: {{ __('index.english_level') }}
         </div>
     </div>
     <div class="row">
@@ -167,26 +176,17 @@
             <div class="resume-list__block">
                 <p class="resume-list__block-title">Vigrom</p>
                 <p class="resume-list__block-date">2019 - {{ __('index.work_until_now') }}</p>
-                <p>
-                    <b>Backend PHP Developer</b><br>
-                    {{ __('index.work_1_description') }}
-                </p>
+                <p><b>Backend PHP Developer</b><br>{{ __('index.work_1_description') }}</p>
             </div>
             <div class="resume-list__block">
                 <p class="resume-list__block-title">Webmechanic</p>
                 <p class="resume-list__block-date">2017 - 2019</p>
-                <p>
-                    <b>Web Developer</b><br>
-                    {{ __('index.work_2_description') }}
-                </p>
+                <p><b>Web Developer</b><br>{{ __('index.work_2_description') }}</p>
             </div>
             <div class="resume-list__block">
                 <p class="resume-list__block-title">{{ __('index.ASTU') }}</p>
                 <p class="resume-list__block-date">2015 - 2017</p>
-                <p>
-                    <b>{{ __('index.work_3_title') }}</b><br>
-                    {{ __('index.work_3_description') }}
-                </p>
+                <p><b>{{ __('index.work_3_title') }}</b><br>{{ __('index.work_3_description') }}</p>
             </div>
         </div>
     </div>
@@ -196,189 +196,146 @@
             <div class="resume-list__block">
                 <p class="resume-list__block-title">{{ __('index.ASTU') }}</p>
                 <p class="resume-list__block-date">2017 - 2019</p>
-                <p>
-                    {{ __('index.education_1_description') }}
-                </p>
+                <p>{{ __('index.education_1_description') }}</p>
             </div>
             <div class="resume-list__block">
                 <p class="resume-list__block-title">{{ __('index.ASTU') }}</p>
                 <p class="resume-list__block-date">2013 - 2017</p>
-                <p>
-                    {{ __('index.education_2_description') }}
-                </p>
+                <p>{{ __('index.education_2_description') }}</p>
             </div>
         </div>
     </div>
+</section>
+<section id="skills" class="container section" aria-label="Skills">
+    <div class="row">
+        <div class="col-md-10">
+            <h2 class="section__title" style="text-indent: 0;">{{ __('index.skills') }}</h2>
+        </div>
+    </div>
     <div class="row section__resume progress-list js-progress-list">
-        <div class="col-md-12">
-            <h3 class="progress-list__title">{{ __('index.skills') }}</h3>
-        </div>
         <div class="col-md-5 mr-auto">
             <div class="progress-list__skill">
-                <p>
-                    <span class="progress-list__skill-title">PHP</span>
-                    <span class="progress-list__skill-value">85%</span>
-                </p>
-                <div class="progress">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0"
-                         aria-valuemax="100">
-                    </div>
-                </div>
+                <p><span class="progress-list__skill-title">PHP</span><span class="progress-list__skill-value">85%</span></p>
+                <div class="progress"><div class="progress-bar" style="width: 85%;"></div></div>
             </div>
             <div class="progress-list__skill">
-                <p>
-                    <span class="progress-list__skill-title">Laravel</span>
-                    <span class="progress-list__skill-value">85%</span>
-                </p>
-                <div class="progress">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0"
-                         aria-valuemax="100">
-                    </div>
-                </div>
+                <p><span class="progress-list__skill-title">Laravel</span><span class="progress-list__skill-value">85%</span></p>
+                <div class="progress"><div class="progress-bar" style="width: 85%;"></div></div>
             </div>
             <div class="progress-list__skill">
-                <p>
-                    <span class="progress-list__skill-title">Javascript</span>
-                    <span class="progress-list__skill-value">70%</span>
-                </p>
-                <div class="progress">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0"
-                         aria-valuemax="100">
-                    </div>
-                </div>
+                <p><span class="progress-list__skill-title">JavaScript / Vue.js</span><span class="progress-list__skill-value">70%</span></p>
+                <div class="progress"><div class="progress-bar" style="width: 70%;"></div></div>
             </div>
             <div class="progress-list__skill">
-                <p>
-                    <span class="progress-list__skill-title">VueJS</span>
-                    <span class="progress-list__skill-value">70%</span>
-                </p>
-                <div class="progress">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0"
-                         aria-valuemax="100">
-                    </div>
-                </div>
+                <p><span class="progress-list__skill-title">Python</span><span class="progress-list__skill-value">60%</span></p>
+                <div class="progress"><div class="progress-bar" style="width: 60%;"></div></div>
+            </div>
+            <div class="progress-list__skill">
+                <p><span class="progress-list__skill-title">Node.js</span><span class="progress-list__skill-value">65%</span></p>
+                <div class="progress"><div class="progress-bar" style="width: 65%;"></div></div>
             </div>
         </div>
         <div class="col-md-5 mr-auto">
             <div class="progress-list__skill">
-                <p>
-                    <span class="progress-list__skill-title">Bootstrap 4</span>
-                    <span class="progress-list__skill-value">70%</span>
-                </p>
-                <div class="progress">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0"
-                         aria-valuemax="100">
-                    </div>
-                </div>
+                <p><span class="progress-list__skill-title">PostgreSQL / MySQL</span><span class="progress-list__skill-value">80%</span></p>
+                <div class="progress"><div class="progress-bar" style="width: 80%;"></div></div>
             </div>
             <div class="progress-list__skill">
-                <p>
-                    <span class="progress-list__skill-title">HTML5</span>
-                    <span class="progress-list__skill-value">70%</span>
-                </p>
-                <div class="progress">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0"
-                         aria-valuemax="100">
-                    </div>
-                </div>
+                <p><span class="progress-list__skill-title">Docker / CI/CD</span><span class="progress-list__skill-value">75%</span></p>
+                <div class="progress"><div class="progress-bar" style="width: 75%;"></div></div>
             </div>
             <div class="progress-list__skill">
-                <p>
-                    <span class="progress-list__skill-title">Git</span>
-                    <span class="progress-list__skill-value">75%</span>
-                </p>
-                <div class="progress">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0"
-                         aria-valuemax="100">
-                    </div>
-                </div>
+                <p><span class="progress-list__skill-title">Git</span><span class="progress-list__skill-value">90%</span></p>
+                <div class="progress"><div class="progress-bar" style="width: 90%;"></div></div>
             </div>
             <div class="progress-list__skill">
-                <p>
-                    <span class="progress-list__skill-title">CSS3</span>
-                    <span class="progress-list__skill-value">60%</span>
-                </p>
-                <div class="progress">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0"
-                         aria-valuemax="100">
-                    </div>
+                <p><span class="progress-list__skill-title">REST API</span><span class="progress-list__skill-value">80%</span></p>
+                <div class="progress"><div class="progress-bar" style="width: 80%;"></div></div>
+            </div>
+            <div class="progress-list__skill">
+                <p><span class="progress-list__skill-title">HTML5 / CSS3 / SCSS</span><span class="progress-list__skill-value">75%</span></p>
+                <div class="progress"><div class="progress-bar" style="width: 75%;"></div></div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-top:30px;">
+        <div class="col-md-10" style="background:rgba(109,86,193,0.08);padding:30px;border-radius:12px;border:1px solid rgba(109,86,193,0.15);">
+            <h3 style="font-family:'Roboto Mono',monospace;font-size:16px;line-height:24px;text-transform:uppercase;letter-spacing:3px;color:#6d56c1;margin-bottom:15px;">🤖 AI &amp; ML Skills</h3>
+            <div class="row" style="margin-top:15px;">
+                <div class="col-md-5">
+                    <ul style="list-style:none;padding:0;">
+                        <li style="padding:5px 0;padding-left:20px;position:relative;">✦ LangChain / LlamaIndex</li>
+                        <li style="padding:5px 0;padding-left:20px;position:relative;">✦ RAG (Retrieval-Augmented Generation)</li>
+                        <li style="padding:5px 0;padding-left:20px;position:relative;">✦ LLM Integration (GPT-4, Claude, Llama, Mistral)</li>
+                        <li style="padding:5px 0;padding-left:20px;position:relative;">✦ Prompt Engineering</li>
+                        <li style="padding:5px 0;padding-left:20px;position:relative;">✦ AI Agents &amp; Tooling</li>
+                    </ul>
+                </div>
+                <div class="col-md-5">
+                    <ul style="list-style:none;padding:0;">
+                        <li style="padding:5px 0;padding-left:20px;position:relative;">✦ Python (NumPy, Pandas, Scikit-learn)</li>
+                        <li style="padding:5px 0;padding-left:20px;position:relative;">✦ TensorFlow / PyTorch Basics</li>
+                        <li style="padding:5px 0;padding-left:20px;position:relative;">✦ Vector Databases (Pinecone, Weaviate)</li>
+                        <li style="padding:5px 0;padding-left:20px;position:relative;">✦ OpenAI API / HuggingFace Transformers</li>
+                        <li style="padding:5px 0;padding-left:20px;position:relative;">✦ Fine-tuning &amp; Embeddings</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!--Resume-->
-
-<!--Contact-->
-<div class="background">
-    <div id="contact" class="container section">
+<div class="background" id="contact">
+    <div class="container section">
         <div class="row">
             <div class="col-md-12">
-                <p id="contacts_header" class="section__title" style="text-indent: -9999px;">
-                    {{ __('index.contact') }}_
-                </p>
+                <h2 class="section__title" style="text-indent: 0;">{{ __('index.contact') }}</h2>
             </div>
         </div>
         <div class="row contacts">
-            <div class="col-md-5 col-lg-4">
+            <div class="col-md-8 col-lg-6">
                 <div class="contacts__list">
                     <dl class="contact-list">
                         <dt>{{ __('index.about_phone') }}</dt>
-                        <dd><a href="tel:89678260718">8 (967) 826-07-18</a></dd>
+                        <dd><a href="tel:+420778112355" dir="ltr">+420 778 112 355</a></dd>
                         <dt>Telegram:</dt>
-                        <dd><a href="tg://resolve?domain=ralymov">ralymov</a></dd>
+                        <dd><a href="https://t.me/ElectricW1zard" target="_blank" rel="noopener noreferrer">@ElectricW1zard</a></dd>
                         <dt>Email:</dt>
-                        <dd><a href="mailto:romanalym@gmail.com">romanalym@gmail.com</a></dd>
+                        <dd><a href="mailto:romanalym@gmail.com" dir="ltr">romanalym@gmail.com</a></dd>
+                        <dt>{{ __('index.about_place') }}</dt>
+                        <dd>Prague, Czech Republic</dd>
                     </dl>
                 </div>
                 <div class="contacts__social">
                     <ul>
-                        <li><a href="https://github.com/ralymov" target="_blank">GitHub</a></li>
-                        <li>
-                            <a target="_blank" href="https://www.linkedin.com/in/ralymov">
-                                Linkedin
-                            </a>
-                        </li>
-                        <li><a href="https://t.me/ralymov" target="_blank">Telegram</a></li>
+                        <li><a href="https://github.com/ralymov" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                        <li><a href="https://www.linkedin.com/in/ralymov" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                        <li><a href="https://t.me/ElectricW1zard" target="_blank" rel="noopener noreferrer">Telegram</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="col-md-7 col-lg-5">
-                <div class="contacts__form">
-                    <p class="contacts__form-title">{{ __('index.contact_me') }}_</p>
-                    <form class="js-form" enctype="multipart/form-data">
-                        <div class="form-group">
-                            <input class="form-field js-field-name" name="name"
-                                   placeholder="{{ __('index.form_name') }}" required>
-                            <span class="form-validation"></span>
-                            <span class="form-invalid-icon"><i class="icon-cancel"></i></span>
-                        </div>
-                        <div class="form-group">
-                            <input class="form-field js-field-email" type="email" name="email"
-                                   placeholder="{{ __('index.form_email') }}" required>
-                            <span class="form-validation"></span>
-                            <span class="form-invalid-icon"><i class="icon-cancel"></i></span>
-                        </div>
-                        <div class="form-group">
-                            <textarea class="form-field js-field-message" name="message"
-                                      placeholder="{{ __('index.form_message') }}" required></textarea>
-                            <span class="form-validation"></span>
-                            <span class="form-invalid-icon"><i class="icon-cancel"></i></span>
-                        </div>
-                        <button class="site-btn site-btn--form" value="Send">{{ __('index.send') }}</button>
-                    </form>
-                </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
                 <div class="footer">
-                    <p>© {{date("Y")}} {{ __('index.about_name') }}</p>
+                    <p>&copy; {{ date("Y") }} {{ __('index.about_name') }} — Prague, Czech Republic</p>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!--Contact-->
-
+<link rel="alternate" hreflang="ru" href="https://alymov.dev/?lang=ru" />
+<link rel="alternate" hreflang="en" href="https://alymov.dev/?lang=en" />
+<link rel="alternate" hreflang="x-default" href="https://alymov.dev/" />
 <script src="{{mix('js/app.js')}}"></script>
-
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+   ym(12345678, "init", {clickmap:true,trackLinks:true,accurateTrackBoutique:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/12345678" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 </body>
-
 </html>

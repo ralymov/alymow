@@ -1,50 +1,52 @@
 <?php
 
 return [
-    'meta_description' => 'Backend developer Roman Alymov. Professional development of web applications in PHP, Laravel, VueJS',
-    'title' => 'Creating and optimization web applications in PHP, Laravel, VueJS',
-    'ASTU' => 'Astrakhan state technical university',
+    'meta_description' => 'Backend developer Roman Alymov. Professional development of web applications in PHP, Laravel, VueJS. Based in Prague, Czech Republic.',
+    'title' => 'Roman Alymov — Backend Developer | PHP, Laravel, VueJS',
+    'ASTU' => 'Astrakhan State Technical University',
     'skills' => 'Skills',
     'contact' => 'Contact',
-    'send' => 'Send',
+    'send' => 'Send Message',
 
     'menu_about' => 'About',
     'menu_cv' => 'CV',
     'menu_contact' => 'Contacts',
 
     'about_name' => 'Roman Alymov',
-    'about_work' => 'Backend-developer',
+    'about_work' => 'Backend Developer',
     'about_age' => 'Age:',
     'about_phone' => 'Phone:',
-    'about_place' => 'Place:',
-    'about_location' => 'Russia, Astrakhan',
+    'about_place' => 'Location:',
+    'about_location' => 'Prague, Czech Republic',
     'about_description' => '
-              Backend developer, mainly PHP using frameworks. <br>
-              Ready to work in a team and individually. <br>
-              Constantly try to learn something new. <br>
-              Love music, play the guitar in a band, like travel to interesting places. <br>
+        Experienced backend developer specializing in PHP and Laravel. <br>
+        Passionate about clean code, architecture, and scalable solutions. <br>
+        5+ years of professional experience in web development. <br>
+        Currently based in Prague, Czech Republic. Open to new challenges.
     ',
-    'about_save_cv' => 'Save CV',
+    'about_save_cv' => 'Download CV (PDF)',
     'about_save_cv_link' => 'https://www.notion.so/alymov/CV-Roman-Alymov-acbc52ad27d541bdada530de9b984608',
 
     'databases' => 'Databases',
-    'cvs' => 'Version control systems',
+    'cvs' => 'Version Control',
     'english_language' => 'English',
-    'english_level' => 'Pre-intermediate.',
+    'english_level' => 'Pre-intermediate (B1)',
 
-    'work_title' => 'Experience',
-    'work_until_now' => 'until now',
-    'work_1_description' => 'Online games product backend',
-    'work_2_description' => 'CRM and web-site development',
-    'work_3_title' => 'Information protection specialist',
-    'work_3_description' => 'MSSQL databases and VipNet maintaining',
+    'work_title' => 'Work Experience',
+    'work_until_now' => 'present',
+    'work_1_description' => 'Online gaming platform backend development. High-load PHP/Laravel APIs serving thousands of concurrent users.',
+    'work_2_description' => 'Web development and CRM systems. Full-stack solutions for business automation.',
+    'work_3_title' => 'Information Security Specialist',
+    'work_3_description' => 'MS-SQL database administration and VipNet security system maintenance.',
 
     'education_title' => 'Education',
-    'education_1_description' => 'Master\'s degree, speciality "Automated systems software".',
-    'education_2_description' => 'Bachelor\'s degree, speciality "Computer systems information security".',
+    'education_1_description' => "Master's degree — Software for Automated Systems",
+    'education_2_description' => "Bachelor's degree — Computer Information Security",
 
-    'contact_me' => 'Just text me',
-    'form_name' => 'Your name',
-    'form_email' => 'Your e-mail',
-    'form_message' => 'Enter your message here',
+    'contact_me' => 'Get in Touch',
+    'form_name' => 'Your Name',
+    'form_email' => 'Your Email',
+    'form_message' => 'Your Message',
+    'form_success' => 'Thank you! Your message has been sent successfully.',
+    'form_error' => 'An error occurred. Please try again later.',
 ];
