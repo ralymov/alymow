@@ -66,22 +66,12 @@
                             <li><a href="#content">{{ __('index.menu_cv') }}</a></li>
                         </ul>
                     </div>
-                    <div class="menu__lang">
-                        <a href="?lang=en" class="menu__lang-link" title="English">EN</a>
-                        <span class="menu__lang-sep">/</span>
-                        <a href="?lang=ru" class="menu__lang-link" title="Русский">РУ</a>
-                    </div>
                 </nav>
             </div>
             <div class="menu__wrapper col-md-12 d-lg-none d-flex align-items-center">
                 <button type="button" class="menu__mobile-button mr-auto" aria-label="Open menu">
                     <span><i class="icon-menu"></i></span>
                 </button>
-                <div class="menu__lang">
-                    <a href="?lang=en" class="menu__lang-link" title="English">EN</a>
-                    <span class="menu__lang-sep">/</span>
-                    <a href="?lang=ru" class="menu__lang-link" title="Русский">РУ</a>
-                </div>
             </div>
         </div>
     </div>
@@ -90,7 +80,7 @@
 <header class="main-header" role="banner">
     <div class="container">
         <div class="row">
-            <div class="col-md-10">
+            <div class="col-md-10 text-center">
                 <h1 class="personal-profile__name" style="font-size:36px;line-height:44px;">{{ __('index.project_veeam_title') }}</h1>
                 <p class="personal-profile__work" style="margin-top:10px;">{{ __('index.project_veeam_subtitle') }}</p>
             </div>
@@ -148,7 +138,7 @@
 <script type="text/javascript">
    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
    m[i].l=1*new Date();
-   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }};
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }};;
    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)});
    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
    ym(12345678, "init", {clickmap:true,trackLinks:true,accurateTrackBoutique:true});
