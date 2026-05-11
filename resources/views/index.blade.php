@@ -49,7 +49,7 @@
     <meta name="theme-color" content="#6d56c1">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Mono:wght@400;700&family=Inconsolata:wght@400;700&display=swap" rel="preconnect" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Mono:wght@400;700&family=Inconsolata:wght@400;700&display=swap" rel="stylesheet">
-    <link href="{{ mix('css/style.css') }}" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
@@ -326,7 +326,7 @@
 <link rel="alternate" hreflang="ru" href="https://alymov.dev/?lang=ru" />
 <link rel="alternate" hreflang="en" href="https://alymov.dev/?lang=en" />
 <link rel="alternate" hreflang="x-default" href="https://alymov.dev/" />
-<script src="{{mix('js/app.js')}}"></script>
+<script src="/js/app.js"></script>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};

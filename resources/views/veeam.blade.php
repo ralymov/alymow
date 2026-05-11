@@ -45,7 +45,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Mono:wght@400;700&family=Inconsolata:wght@400;700&display=swap" rel="preconnect" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Mono:wght@400;700&family=Inconsolata:wght@400;700&display=swap" rel="stylesheet">
-    <link href="{{ mix('css/style.css') }}" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
@@ -122,6 +122,6 @@
     </div>
 </div>
 
-<script src="{{mix('js/app.js')}}"></script>
+<script src="/js/app.js"></script>
 </body>
 </html>
