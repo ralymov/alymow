@@ -55,7 +55,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Mono:wght@400;700&family=Inconsolata:wght@400;700&display=swap" rel="preconnect" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Mono:wght@400;700&family=Inconsolata:wght@400;700&display=swap" rel="stylesheet">
-    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/style.css?v=3" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
@@ -108,7 +108,7 @@
                 <div class="personal-profile__contacts">
                     <dl class="contact-list contact-list__opacity-titles">
                         <dt>{{ __('index.about_age') }}</dt>
-                        <dd>29</dd>
+                        <dd>30</dd>
                         <dt>{{ __('index.about_phone') }}</dt>
                         <dd><a href="tel:+420778112355" dir="ltr">+420 778 112 355</a></dd>
                         <dt>Email:</dt>
@@ -136,7 +136,7 @@
 <section id="hello" class="container section">
     <div class="row">
         <div class="col-md-10">
-            <h2 id="hello_header" class="section__title" style="text-indent: 0;"></h2>
+            <h2 id="hello_header" class="section__title" style="text-indent: 0;">{{ __('index.about_title') }}</h2>
             <p class="section__description">{!! __('index.about_description') !!}</p>
             <a href="{{ __('index.about_save_cv_link') }}" target="_blank" rel="noopener noreferrer" class="section_btn site-btn">
                 <img src="/images/img_btn_icon.png" alt="" aria-hidden="true">{{ __('index.about_save_cv') }}
@@ -150,12 +150,13 @@
 <section id="resume" class="container section" aria-label="Resume">
     <div class="row">
         <div class="col-md-10">
-            <h2 id="resume_header" class="section__title" style="text-indent: 0;">{{ __('index.menu_cv') }}</h2>
+            <h2 id="resume_header" class="section__title" style="text-indent: 0;">{{ __('index.resume_title') }}</h2>
             <ul class="skills-inline">
                 <li><strong>Backend</strong>: PHP, Laravel</li>
                 <li><strong>Frontend</strong>: JS, Vue.js, HTML5, CSS3</li>
                 <li><strong>{{ __('index.databases') }}</strong>: PostgreSQL, MySQL</li>
                 <li><strong>{{ __('index.cvs') }}</strong>: Git, Docker, CI/CD</li>
+                <li><strong>AI-Assisted Development</strong>: prompt engineering, LLM &amp; agent integration, multi-agent workflows, AI-assisted testing &amp; legacy migration</li>
             </ul>
             <p class="english-level"><strong>{{ __('index.english_language') }}</strong>: {{ __('index.english_level') }}</p>
         </div>
@@ -218,10 +219,6 @@
                 <div class="progress"><div class="progress-bar" style="width: 70%;"></div></div>
             </div>
             <div class="progress-list__skill">
-                <p><span class="progress-list__skill-title">Python</span><span class="progress-list__skill-value">60%</span></p>
-                <div class="progress"><div class="progress-bar" style="width: 60%;"></div></div>
-            </div>
-            <div class="progress-list__skill">
                 <p><span class="progress-list__skill-title">Node.js</span><span class="progress-list__skill-value">65%</span></p>
                 <div class="progress"><div class="progress-bar" style="width: 65%;"></div></div>
             </div>
@@ -247,25 +244,6 @@
                 <p><span class="progress-list__skill-title">HTML5 / CSS3 / SCSS</span><span class="progress-list__skill-value">75%</span></p>
                 <div class="progress"><div class="progress-bar" style="width: 75%;"></div></div>
             </div>
-        </div>
-    </div>
-    <div class="ai-section">
-        <h3>🤖 AI &amp; ML Skills</h3>
-        <div class="ai-skills-grid">
-            <ul>
-                <li>LangChain / LlamaIndex</li>
-                <li>RAG (Retrieval-Augmented Generation)</li>
-                <li>LLM Integration (GPT-4, Claude, Llama, Mistral)</li>
-                <li>Prompt Engineering</li>
-                <li>AI Agents &amp; Tooling</li>
-            </ul>
-            <ul>
-                <li>Python (NumPy, Pandas, Scikit-learn)</li>
-                <li>TensorFlow / PyTorch Basics</li>
-                <li>Vector Databases (Pinecone, Weaviate)</li>
-                <li>OpenAI API / HuggingFace Transformers</li>
-                <li>Fine-tuning &amp; Embeddings</li>
-            </ul>
         </div>
     </div>
 </section>

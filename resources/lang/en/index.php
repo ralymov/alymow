@@ -10,6 +10,8 @@ return [
     'menu_about' => 'About',
     'menu_cv' => 'CV',
     'menu_skills' => 'Skills',
+    'about_title' => 'About_',
+    'resume_title' => 'CV_',
 
     'about_name' => 'Roman Alymov',
     'about_work' => 'Backend Developer',
@@ -20,7 +22,7 @@ return [
     'about_description' => '
         Experienced backend developer specializing in PHP and Laravel. <br>
         Passionate about clean code, architecture, and scalable solutions. <br>
-        5+ years of professional experience in web development. <br>
+        9+ years of professional experience in web development. <br>
         Currently based in Prague, Czech Republic. Open to new challenges.
     ',
     'about_save_cv' => 'Download CV (PDF)',
