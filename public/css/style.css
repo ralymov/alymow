@@ -368,8 +368,9 @@ a:focus-visible, button:focus-visible {
   pointer-events: none;
 }
 
-/* override template's text-center for the info column */
-.main-header .text-center { text-align: left; }
+/* override template's text-center for the info column
+   (bootstrap's .text-center carries !important, so we need ours too) */
+.main-header .text-center { text-align: left !important; }
 
 .personal-profile__name {
   margin: 6px 0 6px;
