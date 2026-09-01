@@ -143,12 +143,6 @@ a:focus-visible, button:focus-visible {
   transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* align the fixed nav with the page grid: kill bootstrap col padding,
-   so the links share the exact left edge with the hero content below */
-.menu .menu__wrapper {
-  padding-left: 0;
-}
-
 .menu .container,
 .menu .row,
 .menu__wrapper,
@@ -162,8 +156,6 @@ a:focus-visible, button:focus-visible {
   gap: 34px;
   height: 100%;
   margin: 0;
-  padding-left: 0;
-  list-style: none;
 }
 
 .menu ul li a {
@@ -338,22 +330,16 @@ a:focus-visible, button:focus-visible {
 
 .personal-profile {
   padding-top: 20px;
-  align-items: center;
-}
-
-/* flush the avatar column with the page grid (same left edge as nav & titles) */
-.personal-profile__avatar {
-  padding-left: 0;
 }
 
 .personal-profile__avatar .profile-image {
   position: relative;
-  width: min(300px, 100%);
+  width: min(300px, 88%);
   height: 360px;
   border-radius: 24px;
   background-image: url(../images/img_avatar.jpg);
   background-size: cover;
-  background-position: center 22%;
+  background-position: center 18%;
   border: 3px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 24px 50px rgba(0, 0, 0, 0.35);
 }
@@ -520,16 +506,14 @@ body > hr { display: none; }
 
 /* ============ RESUME / CV section ============ */
 .skills-inline {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   margin: 6px 0 22px;
-  padding-left: 0;
-  list-style: none;
 }
 
 .skills-inline li {
-  padding: 9px 16px;
+  padding: 8px 15px;
   border-radius: 10px;
   background: var(--surface);
   border: 1px solid #e7e6f2;
@@ -539,6 +523,22 @@ body > hr { display: none; }
 }
 
 .skills-inline li strong { color: var(--ink); margin-right: 4px; }
+
+/* AI-Assisted line — highlight chip */
+.skills-inline li:last-child {
+  border-color: rgba(109, 86, 193, 0.35);
+  background: linear-gradient(135deg, rgba(109, 86, 193, 0.07), rgba(255, 107, 157, 0.09));
+  color: #4d4390;
+}
+
+.skills-inline li:last-child strong { color: var(--brand); }
+
+.english-level {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.english-level strong { color: var(--ink); }
 
 /* widen the resume columns for a modern full-width card grid */
 #resume .section__resume {
@@ -666,7 +666,6 @@ body > hr { display: none; }
 
 .contacts { margin-top: 30px; }
 
-/* align list & social links with the contact title; kill the ul 40px default */
 .contacts__list { margin-bottom: 38px; }
 
 .contacts .contact-list { max-width: 560px; }
@@ -676,13 +675,7 @@ body > hr { display: none; }
 
 .contacts__social { margin-top: 4px; }
 
-.contacts__social ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  padding-left: 0;
-  list-style: none;
-}
+.contacts__social ul { display: flex; flex-wrap: wrap; gap: 12px; }
 
 .contacts__social ul li { list-style: none; }
 
@@ -730,35 +723,33 @@ body > hr { display: none; }
   .main-header .text-center { text-align: center; }
 
   .personal-profile__avatar { display: flex; justify-content: center; margin-bottom: 28px; }
-  .personal-profile__avatar .profile-image { width: 250px; height: 300px; margin: 0 auto; }
+  .personal-profile__avatar .profile-image { width: 240px; height: 300px; }
 
   .personal-profile__name { font-size: 30px; }
   .personal-profile__work { font-size: 13px; letter-spacing: 2px; }
 
-  /* contacts on mobile: left-aligned like the desktop grid, not centered */
   .contact-list {
-    grid-template-columns: auto 1fr;
-    gap: 10px 26px;
+    grid-template-columns: 1fr;
+    gap: 6px;
     text-align: left;
-    margin: 0;
-    justify-items: stretch;
+    margin: 0 auto;
+    justify-items: center;
   }
 
-  .personal-profile__social { justify-content: flex-start; }
+  .contact-list dt,
+  .contact-list dd {
+    text-align: center;
+  }
 
-  .skills-inline { justify-content: flex-start; }
-  .skills-inline li { text-align: left; }
+  .personal-profile__social { justify-content: center; }
+
+  .skills-inline { justify-content: center; }
 
   .progress-list p { font-size: 12.5px; }
 
   .resume-list__block { padding: 18px 20px; }
 
   .menu { background: rgba(15, 11, 44, 0.85); }
-
-  /* contact section: title, list and social share one left edge */
-  .background .contacts { margin-top: 22px; }
-  .contacts__social { margin-top: 0; }
-  .contacts__social ul { justify-content: flex-start; }
 }
 
 @media (max-width: 575.98px) {

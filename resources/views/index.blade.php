@@ -156,9 +156,9 @@
                 <li><strong>Frontend</strong>: JS, Vue.js, HTML5, CSS3</li>
                 <li><strong>{{ __('index.databases') }}</strong>: PostgreSQL, MySQL</li>
                 <li><strong>{{ __('index.cvs') }}</strong>: Git, Docker, CI/CD</li>
-                <li><strong>AI-Assisted Development</strong>: prompt engineering, LLM &amp; agent integration, multi-agent workflows, AI-assisted testing &amp; legacy migration</li>
+                <li><strong>AI-Assisted</strong>: prompt engineering, LLM &amp; agent integration, multi-agent workflows, AI-assisted testing &amp; legacy migration</li>
+                <li><strong>{{ __('index.english_language') }}</strong>: {{ __('index.english_level') }}</li>
             </ul>
-            <p class="english-level"><strong>{{ __('index.english_language') }}</strong>: {{ __('index.english_level') }}</p>
         </div>
     </div>
     <div class="row">
@@ -221,6 +221,10 @@
             <div class="progress-list__skill">
                 <p><span class="progress-list__skill-title">Node.js</span><span class="progress-list__skill-value">65%</span></p>
                 <div class="progress"><div class="progress-bar" style="width: 65%;"></div></div>
+            </div>
+        <div class="progress-list__skill">
+                <p><span class="progress-list__skill-title">AI / LLM Integration</span><span class="progress-list__skill-value">70%</span></p>
+                <div class="progress"><div class="progress-bar" style="width: 70%;"></div></div>
             </div>
         </div>
         <div class="col-md-5 mr-auto">
