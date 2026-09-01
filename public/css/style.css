@@ -727,8 +727,21 @@ body > hr { display: none; }
 
   .main-header { padding-bottom: 56px; }
 
+  /* a bit more breathing room on small screens — content shouldn't hug
+     the screen edges */
+  .container, .background .container {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  /* section titles centered on mobile so they don't cling to the left edge */
+  .section__title { text-align: center; display: block; }
+  .section__title::after { margin-left: auto; margin-right: auto; }
+
+  /* mobile hero: photo, name, contacts & social all centered (beat the
+     desktop left-align override which carries !important) */
   .personal-profile { text-align: center; }
-  .main-header .text-center { text-align: center; }
+  .main-header .text-center { text-align: center !important; }
 
   .personal-profile__avatar { display: flex; justify-content: center; margin-bottom: 28px; }
   .personal-profile__avatar .profile-image { width: 250px; height: 300px; margin: 0 auto; }
@@ -736,18 +749,23 @@ body > hr { display: none; }
   .personal-profile__name { font-size: 30px; }
   .personal-profile__work { font-size: 13px; letter-spacing: 2px; }
 
-  /* contacts on mobile: left-aligned like the desktop grid, not centered */
+  /* contact list stays a clean two-column grid, but the whole block is
+     centered on the screen instead of hugging the left edge */
   .contact-list {
     grid-template-columns: auto 1fr;
-    gap: 10px 26px;
+    gap: 10px 22px;
     text-align: left;
-    margin: 0;
+    margin: 0 auto;
     justify-items: stretch;
+    width: fit-content;
+    max-width: 100%;
   }
 
-  .personal-profile__social { justify-content: flex-start; }
+  .contact-list dt { text-align: right; }
 
-  .skills-inline { justify-content: flex-start; }
+  .personal-profile__social { justify-content: center; }
+
+  .skills-inline { justify-content: center; }
   .skills-inline li { text-align: left; }
 
   .progress-list p { font-size: 12.5px; }
@@ -756,10 +774,11 @@ body > hr { display: none; }
 
   .menu { background: rgba(15, 11, 44, 0.85); }
 
-  /* contact section: title, list and social share one left edge */
+  /* contact section: centered like the hero */
   .background .contacts { margin-top: 22px; }
+  .background .contacts .contact-list { margin: 0 auto; }
   .contacts__social { margin-top: 0; }
-  .contacts__social ul { justify-content: flex-start; }
+  .contacts__social ul { justify-content: center; }
 }
 
 @media (max-width: 575.98px) {
